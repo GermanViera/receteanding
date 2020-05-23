@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+	<!-- Basic Page Needs -->
+	<meta charset="utf-8">
+	<title>Inicio | Receteanding</title>
+	<meta name="description" content="Recipes Food - Food & Recipes Food Template">
+     <meta name="keywords" content="recipes food, recipes , sushi, chinese, italian food">
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Main Style -->
+     <script src="js/comunicacion_swift.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="js/w3.js"></script>
+    <!-- customize CSS Style -->
+    <link rel="stylesheet" href="css/customize.css">
+
+    <!-- Skins Style -->
+    <link rel="stylesheet" href="css/skins/skins.css">
+
+    <!-- Responsive Style -->
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="images/icon.png">
+    <style>
+        .mi_fondo{
+            background-image: url('images/fondo1.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        
+        @media  (min-width:300px) and (max-width: 768px) {
+            .mi_fondo{
+                background-image: url('images/fonfo768.png');
+            }
+        }
+    </style>
+    
+</head>
+<body class="sticky">
+
+    <!-- wrap Page -->
+    <div id="wrap">
+        <section class="parallax-window mi_fondo" style="">
+            <div id="sub_header">
+                <div class="container" id="sub_content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 style="font-size:40px;">Muchas <span class="number">Recetas</span> te esperan</h1>
+                            <h3 style="font-size:20px;">Cocinando con amor</h3>
+                            <!--   <form method="get" action="index.php/site_controller/search"> -->
+                           <div id="custom-search-input">
+                                    <div class="input-group">
+                                        <input type="text" id="texto" name="q" class=" search-query" placeholder="¿Qué vas a cocinar?" style="background-color: rgba(255, 255, 255, 0.75);">
+                                        <p style="color: #FFFFFF;
+    font-size: 16px;">
+                                            <span id="contenedor_categorias"></span>
+
+                                         <a href="#" onclick="irCategorias();" style="color: #FFFFFF;
+    font-size: 16px;">Categorías</a>
+                                        </p>
+                                        <span class="input-group-btn">
+                                            <input type="button" class="btn_search" value="submit" onclick="irBuscar();">
+                                        </span>
+                                    </div>
+                                </div>
+                           <!-- </form> -->
+                        </div>
+                    </div><!-- End row -->
+                </div><!-- End container -->
+            </div>
+        </section>
+        
+        <div class="white_bg">
+            <div class="container margin_60">
+                <!--<div class="main_title">
+                    <h2 class="nomargin_top">Hello, We Are Recipes Food</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam.</p>
+                    <hr class="divider">
+                </div>--><!-- End main_title -->
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+    					<div class="box-icon">
+    						<img src="images/comparte.png" class="img-responsive" style="width:55%; display:inline;" />
+    						<h3>Comparte</h3>
+    						<p>Crea tu propio recetario describiendo cada paso. Agrega fotos y comparte con quien quieras</p>
+    						<!--<a href="#" class="button-radius">Browse More Recipe</a>-->
+    					</div>
+    				</div>
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+    					<div class="box-icon">
+    						<img src="images/cocina.png" class="img-responsive" style="width:55%; display:inline;" />
+    						<h3>Cocina</h3>
+    						<p>Pon en práctica las recetas que te gustaron y responde a los demás usuarios con TU propia magia!</p>
+    						<!--<a href="#" class="button-radius">Browse More Videos</a>-->
+    					</div>
+    				</div>
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+    					<div class="box-icon">
+    						<img src="images/delicioso.png" class="img-responsive" style="width:55%; display:inline;" />
+    						<h3>Delicioso!</h3>
+    						<p>¡Ahora a comer!</p>
+    						<!--<img src="<?//=base_url()?>images/btn_quiero.png" class="img-responsive" style="display:inline" />-->
+    					</div>
+    				</div>
+                    
+                </div><!-- End row -->
+            </div><!-- End container -->
+        </div><!-- End white_bg -->
+
+        <div class="container margin_60">
+            <div class="main_title">
+                <h2 class="nomargin_top">Últimas recetas</h2>
+                <!--<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod</p>-->
+                <hr class="divider">
+            </div><!-- End main_title -->
+            <div class="row" id="contenedor_ultimas_recetas">
+               
+                
+				<img src="images/loading.gif" />
+				
+                
+            </div><!-- End row -->   
+        </div><!-- End container -->
+     
+
+    </div><!-- End wrap Page -->
+    <!-- go-up -->
+    <div class="go-up"><i class="fa fa-chevron-up"></i></div>
+    <!-- End go-up -->
+    
+    <!-- COMMON SCRIPTS -->
+    <script>
+    
+    mi_usuario=0;
+    mi_limit=0;
+    
+    </script>
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="js/jquery.easing.1.3.min.js"></script>
+    <script src="js/jquery.nicescroll.min.js"></script>
+    <script src="js/jquery.scrollTo.js"></script>
+    <script src="js/ResizeSensor.min.js"></script>
+    <script src="js/theia-sticky-sidebar.min.js"></script>
+    <script src="js/parallax.min.js"></script>
+    <script src="js/jquery.themepunch.plugins.min.js"></script>
+    <script src="js/jquery.themepunch.revolution.min.js"></script>
+    <script src="js/ion.rangeSlider.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/funciones.js"></script>
+    <script src="js/inicio.js"></script>
+    <script src="js/comunicacion_swift.js"></script>
+    
+    <script>
+    
+    (function(){
+        $(window).load(function(){
+            var frag = window.location.hash;
+            varTitle = decodeURIComponent(frag);
+            parametros = varTitle.split('#');
+            mi_usuario = parametros[1];
+            listarCategorias();
+            
+            
+        });
+        
+    })(jQuery);
+    
+     
+    </script>
+
+    <div id="loading">
+        <p align="center" style="padding-top:30%;"><img src="rece.png" style="width: 100px;" /> </p>
+        <p align="center" style="padding-top:10%;">CARGANDO INFORMACIÓN . . . </p>
+
+    </div>
+    <div id="myModalError" class="modal fade" role="dialog" style="margin-top:60px;z-index:999999;">
+        <div class="modal-dialog">
+            
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="title_error"></h4>
+                </div>
+                <div class="modal-body">
+                    <p id="msg_error"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+</body>
+</html>

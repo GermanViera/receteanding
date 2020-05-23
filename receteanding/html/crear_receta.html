@@ -1,0 +1,1509 @@
+<html lang="en">
+<head>
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>Crear Receta  | Receteanding</title>
+    <meta name="description" content="Recipes Food - Food & Recipes Food Template">
+    <meta name="keywords" content="recipes food, recipes , sushi, chinese, italian food">
+    <meta name="author" content="desarrollodelsur.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <script src="js/jquery-2.2.4.min.js"></script>
+   
+
+    <!-- customize CSS Style -->
+    <link rel="stylesheet" href="css/customize.css">
+
+    <!-- Skins Style -->
+    <link rel="stylesheet" href="css/skins/skins.css">
+
+    <!-- Responsive Style -->
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="images/icon.png">
+        <script>
+            function autocomplete(inp, arr) {
+                /*the autocomplete function takes two arguments,
+                 the text field element and an array of possible autocompleted values:*/
+                //     alert("autocomplete");
+               // alert(JSON.stringify(arr));
+                var currentFocus;
+                /*execute a function when someone writes in the text field:*/
+                inp.addEventListener("input", function(e) {
+                                     var a, b, i, val = this.value;
+                                     /*close any already open lists of autocompleted values*/
+                                     closeAllLists();
+                                     if (!val) { return false;}
+                                     currentFocus = -1;
+                                     /*create a DIV element that will contain the items (values):*/
+                                     a = document.createElement("DIV");
+                                     a.setAttribute("id", this.id + "autocomplete-list");
+                                     a.setAttribute("class", "autocomplete-items");
+                                     /*append the DIV element as a child of the autocomplete container:*/
+                                     this.parentNode.appendChild(a);
+                                     /*for each item in the array...*/
+                                     for (i = 0; i < arr.length; i++) {
+                                     /*check if the item starts with the same letters as the text field value:*/
+                                     if (arr[i].categoria_nombre.substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+                                     /*create a DIV element for each matching element:*/
+                                     b = document.createElement("DIV");
+                                     /*make the matching letters bold:*/
+                                     b.innerHTML = "<strong>" + arr[i].categoria_nombre.substr(0, val.length) + "</strong>";
+                                     b.innerHTML += arr[i].categoria_nombre.substr(val.length);
+                                     /*insert a input field that will hold the current array item's value:*/
+                                     b.innerHTML += "<input type='hidden' value='" + arr[i].categoria_nombre + "'>";
+                                     b.innerHTML += "<input type='hidden' value='" + arr[i].categoria_id + "'>";
+                                     /*execute a function when someone clicks on the item value (DIV element):*/
+                                     b.addEventListener("click", function(e) {
+                                                        /*insert the value for the autocomplete text field:*/
+                                                        inp.value = this.getElementsByTagName("input")[0].value;
+                                                        document.getElementById("categoria").value=this.getElementsByTagName("input")[1].value;
+                                                        console.log(this.getElementsByTagName("input")[1].value);
+                                                        /*close the list of autocompleted values,
+                                                         (or any other open lists of autocompleted values:*/
+                                                        closeAllLists();
+                                                        });
+                                     a.appendChild(b);
+                                     }
+                                     }
+                                     });
+                                     /*execute a function presses a key on the keyboard:*/
+                                     inp.addEventListener("change", function(e) {
+                                                          var x = document.getElementById(this.id + "autocomplete-list");
+                                                          if (x) x = x.getElementsByTagName("div");
+                                                          if (e.keyCode == 40) {
+                                                          /*If the arrow DOWN key is pressed,
+                                                           increase the currentFocus variable:*/
+                                                          currentFocus++;
+                                                          /*and and make the current item more visible:*/
+                                                          addActive(x);
+                                                          } else if (e.keyCode == 38) { //up
+                                                          /*If the arrow UP key is pressed,
+                                                           decrease the currentFocus variable:*/
+                                                          currentFocus--;
+                                                          /*and and make the current item more visible:*/
+                                                          addActive(x);
+                                                          } else if (e.keyCode == 13) {
+                                                          /*If the ENTER key is pressed, prevent the form from being submitted,*/
+                                                          e.preventDefault();
+                                                          if (currentFocus > -1) {
+                                                          /*and simulate a click on the "active" item:*/
+                                                          if (x) x[currentFocus].click();
+                                                          }
+                                                          }
+                                                          });
+                                                          function addActive(x) {
+                                                              /*a function to classify an item as "active":*/
+                                                              if (!x) return false;
+                                                              /*start by removing the "active" class on all items:*/
+                                                              removeActive(x);
+                                                              if (currentFocus >= x.length) currentFocus = 0;
+                                                              if (currentFocus < 0) currentFocus = (x.length - 1);
+                                                              /*add class "autocomplete-active":*/
+                                                              x[currentFocus].classList.add("autocomplete-active");
+                                                          }
+                                                          function removeActive(x) {
+                                                              /*a function to remove the "active" class from all autocomplete items:*/
+                                                              for (var i = 0; i < x.length; i++) {
+                                                                  x[i].classList.remove("autocomplete-active");
+                                                              }
+                                                          }
+                                                          function closeAllLists(elmnt) {
+                                                              /*close all autocomplete lists in the document,
+                                                               except the one passed as an argument:*/
+                                                              var x = document.getElementsByClassName("autocomplete-items");
+                                                              for (var i = 0; i < x.length; i++) {
+                                                                  if (elmnt != x[i] && elmnt != inp) {
+                                                                      x[i].parentNode.removeChild(x[i]);
+                                                                  }
+                                                              }
+                                                          }
+                                                          /*execute a function when someone clicks in the document:*/
+                                                          document.addEventListener("click", function (e) {
+                                                                                    closeAllLists(e.target);
+                                                                                    });
+            }
+        
+        /*An array containing all the country names in the world:*/
+        
+        
+        
+        
+        /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+        
+            </script>
+    <script>
+        
+        
+        
+
+    mi_usuario=0;
+    mi_limit=0;
+    mi_receta=0;
+    var contador_mas=6;
+    var contadorr_mas=6;
+    var mi_imagen_principal="";
+
+    </script>
+
+    <style>
+    .autocomplete {
+      position: relative;
+      display: inline-block;
+    }
+    .autocomplete-items {
+      position: absolute;
+      border: 1px solid #d4d4d4;
+      border-bottom: none;
+      border-top: none;
+      z-index: 99;
+      /*position the autocomplete items to be the same width as the container:*/
+      top: 100%;
+      left: 0;
+      right: 0;
+    }
+
+    .autocomplete-items div {
+      padding: 10px;
+      cursor: pointer;
+      background-color: #fff;
+      border-bottom: 1px solid #d4d4d4;
+    }
+
+    /*when hovering an item:*/
+    .autocomplete-items div:hover {
+      background-color: #e9e9e9;
+    }
+
+    /*when navigating through the items using the arrow keys:*/
+    .autocomplete-active {
+      background-color: DodgerBlue !important;
+      color: #ffffff;
+    }
+
+</style>
+
+
+</head>
+<body class="sticky">
+
+
+<div id="wrap">
+    
+    <div class="white_bg create-recipe">
+        <div class="container margin_60">
+            <div class="main_title">
+                <h2 class="nomargin_top" id="txt_titulo">Crear Receta</h2>
+                <hr class="divider">
+            </div>
+            <form action="https://receteanding.com/index.php/app_controller/guardarRecetaJson" method="post"  enctype="multipart/form-data" id="mi_form" onsubmit="">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label for="titulo">Título</label>
+                            <input type="text" id="titulo" name="titulo" class="form-control" placeholder="Título" value="" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="descripcion">Descripción</label>
+                            <textarea id="descripcion" name="descripcion" class="form-control" rows="8" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="recipe-ingredient">
+                                <div class="row-recipe-ingredient"  id="contendor_ingredientes">
+                                    <div class="col-recipe-ingredient">
+                                        <i class="ic icon-weight"></i>
+                                        <span class="count-of">1</span>
+                                        <input type="text" class="form-control" placeholder="Ingrediente" name="ingrediente[]" value="">
+                                    </div>
+                                    <div class="col-recipe-ingredient" id="cont_ing_2">
+                                        <i class="ic icon-weight"></i>
+                                        <span class="count-of">2</span>
+                                        <input type="text" class="form-control" placeholder="Ingrediente" name="ingrediente[]">
+                                        <span class="remove-recipe-col"  onclick="eliminarIngrediente(2);"><i class="fa fa-times"></i></span>
+                                    </div>
+                                    <div class="col-recipe-ingredient" id="cont_ing_3">
+                                        <i class="ic icon-weight"></i>
+                                        <span class="count-of">3</span>
+                                        <input type="text" class="form-control" placeholder="Ingrediente" name="ingrediente[]">
+                                        <span class="remove-recipe-col"   onclick="eliminarIngrediente(3);"><i class="fa fa-times"></i></span>
+                                    </div>
+                                    <div class="col-recipe-ingredient" id="cont_ing_4">
+                                        <i class="ic icon-weight"></i>
+                                        <span class="count-of">4</span>
+                                        <input type="text" class="form-control" placeholder="Ingrediente" name="ingrediente[]">
+                                        <span class="remove-recipe-col"   onclick="eliminarIngrediente(4);"><i class="fa fa-times"></i></span>
+                                    </div>
+                                    <div class="col-recipe-ingredient" id="cont_ing_5">
+                                        <i class="ic icon-weight"></i>
+                                        <span class="count-of">5</span>
+                                        <input type="text" class="form-control" placeholder="Ingrediente" name="ingrediente[]">
+                                        <span class="remove-recipe-col"   onclick="eliminarIngrediente(5);"><i class="fa fa-times"></i></span>
+                                    </div>
+                                    <div class="col-recipe-ingredient" id="cont_ing_6">
+                                        <i class="ic icon-weight"></i>
+                                        <span class="count-of">6</span>
+                                        <input type="text" class="form-control" placeholder="Ingrediente" name="ingrediente[]">
+                                        <span class="remove-recipe-col"   onclick="eliminarIngrediente(6);"><i class="fa fa-times"></i></span>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-addnew-item" onclick="agregarIngrediente();"><i class="fa fa-plus-circle"></i> Nuevo Ingrediente</button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="recipe-instructions">
+                                <div class="row-recipe-instructions"   id="contendor_instrucciones">
+                                    <div class="col-recipe-instructions">
+                                        <i class="ic icon-manual-madrab"></i>
+                                        <span class="count-of">1</span>
+                                        <input type="text" class="form-control" placeholder="Instrucción" name="instruccion[]">
+                                        <input type="file" name="finstruccion_1" id="finstruccion_1" class="finstruccion" onchange="getFileInstruccion(this,1);"  style="display:none">
+                                        <input type="hidden" name="hfinstruccion_1" id="hfinstruccion_1" class="hinstruccion" />
+                                        <img src="images/ico_photo.png" style="max-width:150px;width:80px;" id="imgi_1" />
+                                        <script>
+                                                $("#imgi_1").click(function () {
+                                                    $("#finstruccion_1").click();
+                                                });
+                                                       document.getElementById("finstruccion_1").onchange = function () {
+                                                    var reader1 = new FileReader();
+
+
+
+                                                    reader1.onload = function (e) {
+                                                        // get loaded data and render thumbnail.
+
+                                                        //document.getElementById("imgi_1").style.backgroundImage = "url('"+e.target.result+"')";
+                                                        document.getElementById("imgi_1").src=e.target.result;
+                                                    };
+
+                                                    // read the image file as a data URL.
+                                                    reader1.readAsDataURL(this.files[0]);
+                                                };
+                                                </script>
+
+                                        <input type="file" name="finstruccion_1_1" id="finstruccion_1_1" onchange="getFileInstruccion(this,'1_1');"  style="display:none">
+                                        <input type="hidden" name="hfinstruccion_1_1" id="hfinstruccion_1_1" />
+                                        <img src="images/ico_photo.png" style="max-width:150px;width:80px;" id="imgi_1_1" />
+                                        <script>
+                                                $("#imgi_1_1").click(function () {
+                                                    $("#finstruccion_1_1").click();
+                                                });
+                                                       document.getElementById("finstruccion_1_1").onchange = function () {
+                                                    var reader1_1 = new FileReader();
+
+
+
+                                                    reader1_1.onload = function (e) {
+                                                        // get loaded data and render thumbnail.
+
+                                                        //document.getElementById("imgi_1").style.backgroundImage = "url('"+e.target.result+"')";
+                                                        document.getElementById("imgi_1_1").src=e.target.result;
+                                                    };
+
+                                                    // read the image file as a data URL.
+                                                    reader1_1.readAsDataURL(this.files[0]);
+                                                };
+                                                </script>
+                                        <input type="file" name="finstruccion_1_2" id="finstruccion_1_2" onchange="getFileInstruccion(this,'1_2');"  style="display:none">
+                                        <input type="hidden" name="hfinstruccion_1_2" id="hfinstruccion_1_2" />
+                                        <img src="images/ico_photo.png" style="max-width:150px;width:80px;" id="imgi_1_2" /><br><br><br>
+                                        <script>
+                                                $("#imgi_1_2").click(function () {
+                                                    $("#finstruccion_1_2").click();
+                                                });
+                                                       document.getElementById("finstruccion_1_2").onchange = function () {
+                                                    var reader1_2 = new FileReader();
+
+
+
+                                                    reader1_2.onload = function (e) {
+                                                        // get loaded data and render thumbnail.
+
+                                                        //document.getElementById("imgi_1").style.backgroundImage = "url('"+e.target.result+"')";
+                                                        document.getElementById("imgi_1_2").src=e.target.result;
+                                                    };
+
+                                                    // read the image file as a data URL.
+                                                    reader1_2.readAsDataURL(this.files[0]);
+                                                };
+                                                </script>
+                                    </div>
+                                    <div class="col-recipe-instructions"   id="cont_paso_2">
+                                        <i class="ic icon-manual-madrab"></i>
+                                        <span class="count-of">2</span>
+                                        <input type="text" class="form-control" placeholder="Instrucción" name="instruccion[]">
+                                        <input type="file" name="finstruccion_2" id="finstruccion_2"  class="finstruccion"  onchange="getFileInstruccion(this,2);"  style="display:none">
+                                        <input type="hidden" name="hfinstruccion_2" id="hfinstruccion_2"  class="hinstruccion" />
+                                        <img src="images/ico_photo.png" style="max-width:150px;width:80px;" id="imgi_2" />
+                                        <script>
+                                                $("#imgi_2").click(function () {
+                                                    $("#finstruccion_2").click();
+                                                });
+                                                       document.getElementById("finstruccion_2").onchange = function () {
+                                                    var reader2 = new FileReader();
+
+
+
+                                                    reader2.onload = function (e) {
+                                                        // get loaded data and render thumbnail.
+
+                                                        //document.getElementById("imgi_1").style.backgroundImage = "url('"+e.target.result+"')";
+                                                        document.getElementById("imgi_2").src=e.target.result;
+                                                    };
+
+                                                    // read the image file as a data URL.
+                                                    reader2.readAsDataURL(this.files[0]);
+                                                };
+                                                </script>
+                                        <span class="remove-recipe-col"   onclick="eliminarPaso(2);"><i class="fa fa-times"></i></span>
+                                        <input type="file" name="finstruccion_2_1" id="finstruccion_2_1"  onchange="getFileInstruccion(this,'2_1');"  style="display:none">
+                                        <input type="hidden" name="hfinstruccion_2_1" id="hfinstruccion_2_1" />
+                                        <img src="images/ico_photo.png" style="max-width:150px;width:80px;" id="imgi_2_1" />
+                                        <script>
+                                                $("#imgi_2_1").click(function () {
+                                                    $("#finstruccion_2_1").click();
+                                                });
+                                                       document.getElementById("finstruccion_2_1").onchange = function () {
+                                                    var reader2_1 = new FileReader();
+
+
+
+                                                    reader2_1.onload = function (e) {
+                                                        // get loaded data and render thumbnail.
+
+                                                        //document.getElementById("imgi_1").style.backgroundImage = "url('"+e.target.result+"')";
+                                                        document.getElementById("imgi_2_1").src=e.target.result;
+                                                    };
+
+                                                    // read the image file as a data URL.
+                                                    reader2_1.readAsDataURL(this.files[0]);
+                                                };
+                                                </script>
+
+                                        <input type="file" name="finstruccion_2_2" id="finstruccion_2_2"  onchange="getFileInstruccion(this,'2_2');"  style="display:none">
+                                        <input type="hidden" name="hfinstruccion_2_2" id="hfinstruccion_2_2" />
+                                        <img src="images/ico_photo.png" style="max-width:150px;width:80px;" id="imgi_2_2" /><br><br><br>
+                                        <script>
+                                                $("#imgi_2_2").click(function () {
+                                                    $("#finstruccion_2_2").click();
+                                                });
+                                                       document.getElementById("finstruccion_2_2").onchange = function () {
+                                                    var reader2_2 = new FileReader();
+
+
+
+                                                    reader2_2.onload = function (e) {
+                                                        // get loaded data and render thumbnail.
+
+                                                        //document.getElementById("imgi_1").style.backgroundImage = "url('"+e.target.result+"')";
+                                                        document.getElementById("imgi_2_2").src=e.target.result;
+                                                    };
+
+                                                    // read the image file as a data URL.
+                                                    reader2_2.readAsDataURL(this.files[0]);
+                                                };
+                                                </script>
+
+                                    </div>
+                                    <div class="col-recipe-instructions"   id="cont_paso_3">
+                                        <i class="ic icon-manual-madrab"></i>
+                                        <span class="count-of">3</span>
+                                        <input type="text" class="form-control" placeholder="Instrucción" name="instruccion[]">
+                                        <input type="file" name="finstruccion_3" id="finstruccion_3"  class="finstruccion"  onchange="getFileInstruccion(this,3);"  style="display:none">
+                                        <input type="hidden" name="hfinstruccion_3" id="hfinstruccion_3"  class="hinstruccion"/>
+                                        <img src="images/ico_photo.png" style="max-width:150px;width:80px;" id="imgi_3" />
+                                        <span class="remove-recipe-col"  onclick="eliminarPaso(3);"><i class="fa fa-times"></i></span>
+                                        <script>
+                                                $("#imgi_3").click(function () {
+                                                    $("#finstruccion_3").click();
+                                                });
+                                                       document.getElementById("finstruccion_3").onchange = function () {
+                                                    var reader3 = new FileReader();
+
+
+
+                                                    reader3.onload = function (e) {
+                                                        // get loaded data and render thumbnail.
+
+                                                        //document.getElementById("imgi_1").style.backgroundImage = "url('"+e.target.result+"')";
+                                                        document.getElementById("imgi_3").src=e.target.result;
+                                                    };
+
+                                                    // read the image file as a data URL.
+                                                    reader3.readAsDataURL(this.files[0]);
+                                                };
+                                                </script>
+                                        <input type="file" name="finstruccion_3_1" id="finstruccion_3_1"  onchange="getFileInstruccion(this,'3_1');"  style="display:none">
+                                        <input type="hidden" name="hfinstruccion_3_1" id="hfinstruccion_3_1" />
+                                        <img src="images/ico_photo.png" style="max-width:150px;width:80px;" id="imgi_3_1" />
+
+                                        <script>
+                                                $("#imgi_3_1").click(function () {
+                                                    $("#finstruccion_3_1").click();
+                                                });
+                                                       document.getElementById("finstruccion_3_1").onchange = function () {
+                                                    var reader3_1 = new FileReader();
+
+
+
+                                                    reader3_1.onload = function (e) {
+                                                        // get loaded data and render thumbnail.
+
+                                                        //document.getElementById("imgi_1").style.backgroundImage = "url('"+e.target.result+"')";
+                                                        document.getElementById("imgi_3_1").src=e.target.result;
+                                                    };
+
+                                                    // read the image file as a data URL.
+                                                    reader3_1.readAsDataURL(this.files[0]);
+                                                };
+                                                </script>
+                                        <input type="file" name="finstruccion_3_2" id="finstruccion_3_2"  onchange="getFileInstruccion(this,'3_2');"  style="display:none">
+                                        <input type="hidden" name="hfinstruccion_3_2" id="hfinstruccion_3_2" />
+                                        <img src="images/ico_photo.png" style="max-width:150px;width:80px;" id="imgi_3_2" />  <br><br><br>
+
+                                        <script>
+                                                $("#imgi_3_2").click(function () {
+                                                    $("#finstruccion_3_2").click();
+                                                });
+                                                       document.getElementById("finstruccion_3_2").onchange = function () {
+                                                    var reader3_2 = new FileReader();
+
+
+
+                                                    reader3_2.onload = function (e) {
+                                                        // get loaded data and render thumbnail.
+
+                                                        //document.getElementById("imgi_1").style.backgroundImage = "url('"+e.target.result+"')";
+                                                        document.getElementById("imgi_3_2").src=e.target.result;
+                                                    };
+
+                                                    // read the image file as a data URL.
+                                                    reader3_2.readAsDataURL(this.files[0]);
+                                                };
+                                                </script>
+                                    </div>
+                                    <div class="col-recipe-instructions"   id="cont_paso_4">
+                                        <i class="ic icon-manual-madrab"></i>
+                                        <span class="count-of">4</span>
+                                        <input type="text" class="form-control" placeholder="Instrucción" name="instruccion[]">
+                                        <input type="file" name="finstruccion_4" id="finstruccion_4"  class="finstruccion"  onchange="getFileInstruccion(this,4);"  style="display:none">
+                                        <input type="hidden" name="hfinstruccion_4" id="hfinstruccion_4"  class="hinstruccion" />
+                                        <img src="images/ico_photo.png" style="max-width:150px;width:80px;" id="imgi_4" />
+                                        <span class="remove-recipe-col"  onclick="eliminarPaso(4);"><i class="fa fa-times"></i></span>
+                                        <script>
+                                                $("#imgi_4").click(function () {
+                                                    $("#finstruccion_4").click();
+                                                });
+                                                       document.getElementById("finstruccion_4").onchange = function () {
+                                                    var reader4 = new FileReader();
+
+
+
+                                                    reader4.onload = function (e) {
+                                                        // get loaded data and render thumbnail.
+
+                                                        //document.getElementById("imgi_1").style.backgroundImage = "url('"+e.target.result+"')";
+                                                        document.getElementById("imgi_4").src=e.target.result;
+                                                    };
+
+                                                    // read the image file as a data URL.
+                                                    reader4.readAsDataURL(this.files[0]);
+                                                };
+                                                </script>
+
+                                        <input type="file" name="finstruccion_4_1" id="finstruccion_4_1"  onchange="getFileInstruccion(this,'4_1');"  style="display:none">
+                                        <input type="hidden" name="hfinstruccion_4_1" id="hfinstruccion_4_1" />
+                                        <img src="images/ico_photo.png" style="max-width:150px;width:80px;" id="imgi_4_1" />
+
+                                        <script>
+                                                $("#imgi_4_1").click(function () {
+                                                    $("#finstruccion_4_1").click();
+                                                });
+                                                       document.getElementById("finstruccion_4_1").onchange = function () {
+                                                    var reader4_1 = new FileReader();
+
+
+
+                                                    reader4_1.onload = function (e) {
+                                                        // get loaded data and render thumbnail.
+
+                                                        //document.getElementById("imgi_1").style.backgroundImage = "url('"+e.target.result+"')";
+                                                        document.getElementById("imgi_4_1").src=e.target.result;
+                                                    };
+
+                                                    // read the image file as a data URL.
+                                                    reader4_1.readAsDataURL(this.files[0]);
+                                                };
+                                                </script>
+
+                                        <input type="file" name="finstruccion_4_2" id="finstruccion_4_2"  onchange="getFileInstruccion(this,'4_2');"  style="display:none">
+                                        <input type="hidden" name="hfinstruccion_4_2" id="hfinstruccion_4_2" />
+                                        <img src="images/ico_photo.png" style="max-width:150px;width:80px;" id="imgi_4_2" />  <br><br><br>
+
+                                        <script>
+                                                $("#imgi_4_2").click(function () {
+                                                    $("#finstruccion_4_2").click();
+                                                });
+                                                       document.getElementById("finstruccion_4_2").onchange = function () {
+                                                    var reader4_2 = new FileReader();
+
+
+
+                                                    reader4_2.onload = function (e) {
+                                                        // get loaded data and render thumbnail.
+
+                                                        //document.getElementById("imgi_1").style.backgroundImage = "url('"+e.target.result+"')";
+                                                        document.getElementById("imgi_4_2").src=e.target.result;
+                                                    };
+
+                                                    // read the image file as a data URL.
+                                                    reader4_2.readAsDataURL(this.files[0]);
+                                                };
+                                                </script>
+                                    </div>
+                                    <div class="col-recipe-instructions"   id="cont_paso_5">
+                                        <i class="ic icon-manual-madrab"></i>
+                                        <span class="count-of">5</span>
+                                        <input type="text" class="form-control" placeholder="Instrucción" name="instruccion[]">
+                                        <input type="file" name="finstruccion_5" id="finstruccion_5"  class="finstruccion"  onchange="getFileInstruccion(this,5);"  style="display:none">
+                                        <input type="hidden" name="hfinstruccion_5" id="hfinstruccion_5"   class="hinstruccion"/>
+                                        <img src="images/ico_photo.png" style="max-width:150px;width:80px;" id="imgi_5" />
+                                        <span class="remove-recipe-col"  onclick="eliminarPaso(5);"><i class="fa fa-times"></i></span>
+                                        <script>
+                                                $("#imgi_5").click(function () {
+                                                    $("#finstruccion_5").click();
+                                                });
+                                                       document.getElementById("finstruccion_5").onchange = function () {
+                                                    var reader5 = new FileReader();
+
+
+
+                                                    reader5.onload = function (e) {
+                                                        // get loaded data and render thumbnail.
+
+                                                        //document.getElementById("imgi_1").style.backgroundImage = "url('"+e.target.result+"')";
+                                                        document.getElementById("imgi_5").src=e.target.result;
+                                                    };
+
+                                                    // read the image file as a data URL.
+                                                    reader5.readAsDataURL(this.files[0]);
+                                                };
+                                                </script>
+
+
+                                        <input type="file" name="finstruccion_5_1" id="finstruccion_5_1"  onchange="getFileInstruccion(this,'5_1');"  style="display:none">
+                                        <input type="hidden" name="hfinstruccion_5_1" id="hfinstruccion_5_1" />
+                                        <img src="images/ico_photo.png" style="max-width:150px;width:80px;" id="imgi_5_1" />
+
+                                        <script>
+                                                $("#imgi_5_1").click(function () {
+                                                    $("#finstruccion_5_1").click();
+                                                });
+                                                       document.getElementById("finstruccion_5_1").onchange = function () {
+                                                    var reader5_1 = new FileReader();
+
+
+
+                                                    reader5_1.onload = function (e) {
+                                                        // get loaded data and render thumbnail.
+
+                                                        //document.getElementById("imgi_1").style.backgroundImage = "url('"+e.target.result+"')";
+                                                        document.getElementById("imgi_5_1").src=e.target.result;
+                                                    };
+
+                                                    // read the image file as a data URL.
+                                                    reader5_1.readAsDataURL(this.files[0]);
+                                                };
+                                                </script>
+
+                                        <input type="file" name="finstruccion_5_2" id="finstruccion_5_2"  onchange="getFileInstruccion(this,'5_2');"  style="display:none">
+                                        <input type="hidden" name="hfinstruccion_5_2" id="hfinstruccion_5_2" />
+                                        <img src="images/ico_photo.png" style="max-width:150px;width:80px;" id="imgi_5_2" />  <br><br><br>
+
+                                        <script>
+                                                $("#imgi_5_2").click(function () {
+                                                    $("#finstruccion_5_2").click();
+                                                });
+                                                       document.getElementById("finstruccion_5_2").onchange = function () {
+                                                    var reader5_2 = new FileReader();
+
+
+
+                                                    reader5_2.onload = function (e) {
+                                                        // get loaded data and render thumbnail.
+
+                                                        //document.getElementById("imgi_1").style.backgroundImage = "url('"+e.target.result+"')";
+                                                        document.getElementById("imgi_5_2").src=e.target.result;
+                                                    };
+
+                                                    // read the image file as a data URL.
+                                                    reader5_2.readAsDataURL(this.files[0]);
+                                                };
+                                                </script>
+                                    </div>
+                                    <div class="col-recipe-instructions"  id="cont_paso_6">
+                                        <i class="ic icon-manual-madrab"></i>
+                                        <span class="count-of">6</span>
+                                        <input type="text" class="form-control" placeholder="Instrucción" name="instruccion[]">
+                                        <input type="file" name="finstruccion_6" id="finstruccion_6"  class="finstruccion"  onchange="getFileInstruccion(this,6);"  style="display:none">
+                                        <input type="hidden" name="hfinstruccion_6" id="hfinstruccion_6"  class="hinstruccion" />
+                                        <img src="images/ico_photo.png" style="max-width:150px;width:80px;" id="imgi_6" />
+                                        <span class="remove-recipe-col"  onclick="eliminarPaso(6);"><i class="fa fa-times"></i></span>
+                                        <script>
+                                                $("#imgi_6").click(function () {
+                                                    $("#finstruccion_6").click();
+                                                });
+                                                       document.getElementById("finstruccion_6").onchange = function () {
+                                                    var reader6 = new FileReader();
+
+
+
+                                                    reader6.onload = function (e) {
+                                                        // get loaded data and render thumbnail.
+
+                                                        //document.getElementById("imgi_1").style.backgroundImage = "url('"+e.target.result+"')";
+                                                        document.getElementById("imgi_6").src=e.target.result;
+                                                    };
+
+                                                    // read the image file as a data URL.
+                                                    reader6.readAsDataURL(this.files[0]);
+                                                };
+                                                </script>
+                                        <input type="file" name="finstruccion_6_1" id="finstruccion_6_1"  onchange="getFileInstruccion(this,'6_1');"  style="display:none">
+                                        <input type="hidden" name="hfinstruccion_6_1" id="hfinstruccion_6_1" />
+                                        <img src="images/ico_photo.png" style="max-width:150px;width:80px;" id="imgi_6_1" />
+
+                                        <script>
+                                                $("#imgi_6_1").click(function () {
+                                                    $("#finstruccion_6_1").click();
+                                                });
+                                                       document.getElementById("finstruccion_6_1").onchange = function () {
+                                                    var reader6_1 = new FileReader();
+
+
+
+                                                    reader6_1.onload = function (e) {
+                                                        // get loaded data and render thumbnail.
+
+                                                        //document.getElementById("imgi_1").style.backgroundImage = "url('"+e.target.result+"')";
+                                                        document.getElementById("imgi_6_1").src=e.target.result;
+                                                    };
+
+                                                    // read the image file as a data URL.
+                                                    reader6_1.readAsDataURL(this.files[0]);
+                                                };
+                                                </script>
+                                        <input type="file" name="finstruccion_6_2" id="finstruccion_6_2"  onchange="getFileInstruccion(this,'6_2');"  style="display:none">
+                                        <input type="hidden" name="hfinstruccion_6_2" id="hfinstruccion_6_2" />
+                                        <img src="images/ico_photo.png" style="max-width:150px;width:80px;" id="imgi_6_2" />  <br><br>
+                                        <br>
+                                        <script>
+                                                $("#imgi_6_2").click(function () {
+                                                    $("#finstruccion_6_2").click();
+                                                });
+                                                       document.getElementById("finstruccion_6_2").onchange = function () {
+                                                    var reader6_2 = new FileReader();
+
+
+
+                                                    reader6_2.onload = function (e) {
+                                                        // get loaded data and render thumbnail.
+
+                                                        //document.getElementById("imgi_1").style.backgroundImage = "url('"+e.target.result+"')";
+                                                        document.getElementById("imgi_6_2").src=e.target.result;
+                                                    };
+
+                                                    // read the image file as a data URL.
+                                                    reader6_2.readAsDataURL(this.files[0]);
+                                                };
+                                                </script>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-addnew-item"  onclick="agregarPaso();"><i class="fa fa-plus-circle"></i> Nueva Instrucción</button>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <aside class="col-md-4 sidebar sticky-sidebar">
+                        <div class="theiaStickySidebar">
+                            <div class="form-group">
+                                <div class="add-photo">
+
+                                    <label class="icon-picture gray" id="imagen_receta">
+
+
+                                        <input type="file" name="userfile" id="files">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="porciones">Categor&iacute;a</label>
+                                <div class="autocomplete" style="width:300px;">
+                                    <input type="text" id="categoriai" name="categoriai" class="form-control" placeholder="Categoría" value="" autocomplete="false">
+                                   <input id="categoria" name="categoria" type="hidden" value="">
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="tiempo_preparacion">Tiempo de Preparación</label>
+                                <input type="text" id="tiempo_preparacion" name="tiempo_preparacion" class="form-control" placeholder="Tiempo de Preparación" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="tiempo_coccion">Tiempo de Cocción</label>
+                                <input type="text" id="tiempo_coccion" name="tiempo_coccion" class="form-control" placeholder="Tiempo de Cocción" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="porciones">Porciones</label>
+                                <input type="text" id="porciones" name="porciones" class="form-control" placeholder="Porciones" value="">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="tiempo_coccion"> Apto para</label> <br>
+
+                                <input type="checkbox" name="vegano" id="vegano"  /> Vegano
+
+
+                                <input type="checkbox" name="vegetariano" id="vegetariano" /> Vegetariano
+
+                                <input type="checkbox" name="celiaco" id="celiaco"  /> Celíaco
+
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="recipe-button">
+
+                                    <button type="button" class="btn btn-publish" onclick="modificarEstado()" id="btn_publicar">Publicar</button>
+
+
+                                    <button type="button" class="btn btn-save" id="btn_guardar" onclick="botones();">Guardar</button>
+
+                                    <button type="button" class="btn btn-cancel" onclick="eliminarReceta();" id="btn_eliminar" style="display:none">Eliminar</button>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+                <input  type="hidden" name="estado" id="estado" value="1" />
+                <input type="hidden" name="imagen_principal" id="imagen_principal" value="" />
+                <input type="hidden" name="receta_id" id="receta_id" value="" />
+            </form>
+        </div><!-- End container -->
+    </div><!-- End white_bg -->
+    <!-- newslatter -->
+
+    <!-- End newslatter -->
+    <!-- Footer -->
+
+</div><!-- End wrap Page -->
+<!-- go-up -->
+<div class="go-up"><i class="fa fa-chevron-up"></i></div>
+<!-- End go-up -->
+
+<!-- COMMON SCRIPTS -->
+
+<script>
+       document.getElementById("files").onchange = function () {
+    var reader = new FileReader();
+
+
+if (this.files[0].type.match('image.*')){
+    reader.onload = function (e) {
+        // get loaded data and render thumbnail.
+
+        document.getElementById("imagen_receta").style.backgroundImage = "url('"+e.target.result+"')";
+        document.getElementById("imagen_principal").value=e.target.result;
+    };
+
+    // read the image file as a data URL.
+    reader.readAsDataURL(this.files[0]);
+}else{
+        emitirAlerta("La imagen que intentas subir no es un formato válido");
+    }
+};
+
+function getFileInstruccion(elem, id){
+        console.log(document.getElementById("imgi_"+id).value);
+        var reader = new FileReader();
+
+    if (elem.files[0].type.match('image.*')){
+
+        reader.onload = function (e) {
+            // get loaded data and render thumbnail.
+
+
+           // document.getElementById("hfinstruccion_"+id).value=e.target.result;
+            document.getElementById("imgi_"+id).src=e.target.result;
+        };
+
+        // read the image file as a data URL.
+        reader.readAsDataURL(elem.files[0]);
+    }else{
+        emitirAlerta("La imagen que intentas subir no es un formato válido");
+    }
+    }
+   </script>
+
+
+
+
+
+
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="js/jquery.easing.1.3.min.js"></script>
+<script src="js/jquery.nicescroll.min.js"></script>
+<script src="js/jquery.scrollTo.js"></script>
+<script src="js/ResizeSensor.min.js"></script>
+<script src="js/theia-sticky-sidebar.min.js"></script>
+<script src="js/parallax.min.js"></script>
+<script src="js/jquery.themepunch.plugins.min.js"></script>
+<script src="js/jquery.themepunch.revolution.min.js"></script>
+<script src="js/ion.rangeSlider.min.js"></script>
+<script src="js/imagesloaded.pkgd.min.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/funciones.js"></script>
+ <script src="js/comunicacion_swift.js"></script>
+
+
+<script>
+    
+    (function(){
+        $(window).load(function(){
+            idreceta=0;
+            var frag = window.location.hash;
+            varTitle = decodeURIComponent(frag);
+            parametros = varTitle.split('#');
+            usuario = parametros[1];
+            if (parametros.length > 2){
+                idreceta = parametros[2];
+            }
+            
+            if (usuario != ""){         
+                setUsuario(usuario);
+                listarCategorias();
+                if (idreceta != 0){
+                    emitirAlerta("entre a modificar receta" + idreceta);
+                    traerReceta(idreceta);
+                }
+            }
+        });
+        
+    })(jQuery);
+
+      
+
+
+        function traerReceta(id){
+            mi_receta=id;
+
+             var parametros = {
+
+                        "id":id
+
+
+                                                };
+
+                                                console.log(parametros);
+
+
+
+
+                            $.ajax({
+                                                    data:  parametros,
+                                                    type: 'POST',
+                                                    url: 'https://receteanding.com/index.php/app_controller/mRecetaJson',
+
+
+                                                    dataType: "json",
+
+                                                    success: function(data){
+                                                       console.log(data);
+                                                       document.getElementById("titulo").value=data["titulo"];
+                                                       document.getElementById("txt_titulo1").innerHTML="Modificar "+data["titulo"];
+                                                        document.getElementById("txt_titulo").innerHTML="Modificar Receta";
+                                                       document.getElementById("descripcion").value=data["descripcion"];
+                                                       document.getElementById("categoriai").value=data["categoria_nombre"];
+                                                       document.getElementById("categoria").value=data["categoria_id"];
+                                                       document.getElementById("tiempo_preparacion").value=data["preparacion"];
+                                                       document.getElementById("porciones").value=data["porciones"];
+                                                       document.getElementById("tiempo_coccion").value=data["preparacion"];
+
+                                                       if(data["vegano"]==1){
+
+                                                           document.getElementById("vegano").checked=true;
+                                                       }
+
+                                                       if(data["celiaco"]==1){
+
+                                                           document.getElementById("celiaco").checked=true;
+                                                       }
+
+                                                       if(data["vegetariano"]==1){
+
+                                                           document.getElementById("vegetariano").checked=true;
+                                                       }
+
+                                                       if(data["foto_ruta"]!=null && data["foto_ruta"]!=""){
+
+                                                           document.getElementById("imagen_receta").style.backgroundImage="url('"+data["foto_ruta"]+"')";
+                                                           document.getElementById("imagen_principal").value=data["foto_ruta"];
+                                                           mi_imagen_principal=data["foto_ruta"];
+                                                       }
+
+
+                                                       contenido_ingredientes='';
+                                                       if(data["ingredientes"]!=null && data["ingredientes"].length>0){
+                                                           contador_mas=1;
+                                                           for(i=0;i<data["ingredientes"].length; i++){
+
+                                                               if(i==0){
+
+                                                                   contenido_ingredientes+='<div class="col-recipe-ingredient"><i class="ic icon-weight"></i><span class="count-of">1</span><input type="text" class="form-control" placeholder="Ingrediente" name="ingrediente[]" value="'+data["ingredientes"][i]["ingrediente_ingrediente"]+'"></div>';
+
+                                                               }else{
+                                                                   contenido_ingredientes+='<div class="col-recipe-ingredient" id="cont_ing_'+contador_mas+'"><i class="ic icon-weight"></i><span class="count-of">'+contador_mas+'</span><input type="text" class="form-control" placeholder="Ingrediente" name="ingrediente[]" value="'+data["ingredientes"][i]["ingrediente_ingrediente"]+'"><span class="remove-recipe-col"  onclick="eliminarIngrediente('+contador_mas+');"><i class="fa fa-times"></i></span></div>';
+                                                               }
+                                                               contador_mas++;
+
+
+                                                           }
+
+                                                           contador_mas--;
+                                                       }
+
+                                                       if(contenido_ingredientes!=''){
+                                                           document.getElementById("contendor_ingredientes").innerHTML=contenido_ingredientes;
+                                                       }
+
+                                                       contenido_instrucciones='';
+                                                       if(data["instrucciones"]!=null && data["instrucciones"].length>0){
+                                                           contadorr_mas=1;
+                                                           for(i=0;i<data["instrucciones"].length; i++){
+
+
+
+                                                                   contenido_instrucciones+='<div class="col-recipe-instructions" id="cont_paso_'+contadorr_mas+'">';
+                                                                    contenido_instrucciones+='                                    <i class="ic icon-manual-madrab"></i>';
+                                                                    contenido_instrucciones+='                                    <span class="count-of">+</span>';
+                                                                    contenido_instrucciones+='                                            <input type="text" class="form-control" placeholder="Instrucción" name="instruccion[]" value="'+data["instrucciones"][i]["instruccion_instruccion"]+'">';
+                                                                    contenido_instrucciones+='                                            <input type="file"  class="finstruccion" name="finstruccion_'+contadorr_mas+'" id="finstruccion_'+contadorr_mas+'"  onchange="getFileInstruccion(this,\''+contadorr_mas+'\');" style="display:none;">';
+                                                                    if(data["instrucciones"][i]["instruccion_url"]!=null && data["instrucciones"][i]["instruccion_url"]!="undefined" && data["instrucciones"][i]["instruccion_url"]!=""){
+                                                                        contenido_instrucciones+='<input type="hidden" name="hfinstruccion_'+contadorr_mas+'" id="hfinstruccion_'+contadorr_mas+'" value="'+data["instrucciones"][i]["instruccion_url"]+'"  class="hinstruccion" /> ';
+                                                                        contenido_instrucciones+='<img src="https://morfeat.com/admin/'+data["instrucciones"][i]["instruccion_url"]+'" style="max-width:150px;width:80px;" id="imgi_'+contadorr_mas+'" onclick="$(\'#finstruccion_'+contadorr_mas+'\').click();"/>';
+                                                                    }else{
+
+                                                                        contenido_instrucciones+='<input type="hidden" name="hfinstruccion_'+contadorr_mas+'" id="hfinstruccion_'+contadorr_mas+'"   class="hinstruccion" /> ';
+                                                                        contenido_instrucciones+='<img src="images/ico_photo.png" style="max-width:150px;width:80px;" id="imgi_'+contadorr_mas+'" onclick="$(\'#finstruccion_'+contadorr_mas+'\').click();"/>';
+                                                                    }
+
+                                                                    if(data["instrucciones"][i]["instruccion_url_1"]!=null && data["instrucciones"][i]["instruccion_url_1"]!="undefined" && data["instrucciones"][i]["instruccion_url_1"]!=""){
+                                                                        contenido_instrucciones+='<input type="file" name="finstruccion_'+contadorr_mas+'_1'+'" id="finstruccion_'+contadorr_mas+'_1'+'"  onchange="getFileInstruccion(this,\''+contadorr_mas+'_1'+'\');" style="display:none;">';
+                                                                        contenido_instrucciones+='<input type="hidden" name="hfinstruccion_'+contadorr_mas+'_1'+'" id="hfinstruccion_'+contadorr_mas+'_1'+'" value="'+data["instrucciones"][i]["instruccion_url_1"]+'" /> ';
+                                                                        contenido_instrucciones+='<img src="https://morfeat.com/admin/'+data["instrucciones"][i]["instruccion_url_1"]+'" style="max-width:150px;width:80px;" id="imgi_'+contadorr_mas+'_1'+'" onclick="$(\'#finstruccion_'+contadorr_mas+'_1'+'\').click();"/>';
+
+                                                                    }else{
+
+                                                                       contenido_instrucciones+='<input type="file" name="finstruccion_'+contadorr_mas+'_1'+'" id="finstruccion_'+contadorr_mas+'_1'+'"  onchange="getFileInstruccion(this,\''+contadorr_mas+'_1'+'\');" style="display:none;">';
+                                                                       contenido_instrucciones+='<input type="hidden" name="hfinstruccion_'+contadorr_mas+'_1'+'" id="hfinstruccion_'+contadorr_mas+'_1'+'" /> ';
+                                                                       contenido_instrucciones+='<img src="images/ico_photo.png" style="max-width:150px;width:80px;" id="imgi_'+contadorr_mas+'_1'+'" onclick="$(\'#finstruccion_'+contadorr_mas+'_1'+'\').click();"/>';
+
+                                                                    }
+
+                                                                    if(data["instrucciones"][i]["instruccion_url_2"]!=null && data["instrucciones"][i]["instruccion_url_2"]!="undefined" && data["instrucciones"][i]["instruccion_url_2"]!=""){
+                                                                         contenido_instrucciones+='<input type="file" name="finstruccion_'+contadorr_mas+'_2'+'" id="finstruccion_'+contadorr_mas+'_2'+'"  onchange="getFileInstruccion(this,\''+contadorr_mas+'_2'+'\');" style="display:none;">';
+                                                                         contenido_instrucciones+='<input type="hidden" name="hfinstruccion_'+contadorr_mas+'_2'+'" id="hfinstruccion_'+contadorr_mas+'_2'+'"  value="'+data["instrucciones"][i]["instruccion_url_2"]+'"/>';
+                                                                         contenido_instrucciones+='<img src="https://morfeat.com/admin/'+data["instrucciones"][i]["instruccion_url_2"]+'" id="imgi_'+contadorr_mas+'_2'+'" onclick="$(\'#finstruccion_'+contadorr_mas+'_2'+'\').click();"/>  <br>';
+                                                                    }else{
+
+                                                                         contenido_instrucciones+='<input type="file" name="finstruccion_'+contadorr_mas+'_2'+'" id="finstruccion_'+contadorr_mas+'_2'+'"  onchange="getFileInstruccion(this,\''+contadorr_mas+'_2'+'\');" style="display:none;"><input type="hidden" name="hfinstruccion_'+contadorr_mas+'_2'+'" id="hfinstruccion_'+contadorr_mas+'_2'+'" /> <img src="images/ico_photo.png" style="max-width:150px;width:80px;" id="imgi_'+contadorr_mas+'_2'+'" onclick="$(\'#finstruccion_'+contadorr_mas+'_2'+'\').click();"/>  <br>';
+                                                                    }
+
+
+                                                                    contenido_instrucciones+='                                    <span class="remove-recipe-col" onclick="eliminarPaso('+contadorr_mas+')"><i class="fa fa-times"></i></span>';
+                                                                    contenido_instrucciones+='                                </div>';
+
+
+
+                                                               contadorr_mas++;
+
+
+                                                           }
+
+                                                           contadorr_mas--;
+                                                       }
+
+                                                       if(contenido_instrucciones!=''){
+                                                           document.getElementById("contendor_instrucciones").innerHTML=contenido_instrucciones;
+                                                       }
+
+
+
+                                                    },
+                                                    complete:function(){
+                                                        //corroborarSesion();
+
+                                                    },
+                                                    error: function(data){
+                                                    console.log(data);
+                                                        document.getElementById("msg_error").innerHTML="Hubo problemas al procesar la solicitud, verifique su conexión a internet";
+                            								    document.getElementById("title_error").innerHTML="Error";
+                                                                $("#myModalError").modal();
+                                                                return false;
+                                                    }
+                            });
+
+
+        }
+
+
+        function listarCategorias(){
+
+            var parametros = {
+
+
+
+
+                                                };
+
+                                                console.log(parametros);
+
+
+
+
+                            $.ajax({
+                                                    data:  parametros,
+                                                    type: 'POST',
+                                                    url: 'https://receteanding.com/index.php/app_controller/listarCategoriasActivasTodasJson',
+
+
+                                                    dataType: "json",
+
+                                                    success: function(data){
+
+                                                       var countries = [];
+
+                                                       for(i=0;i<data.length;i++){
+
+                                                           countries.push({"categoria_id":data[i]["categoria_id"],"categoria_nombre":data[i]["categoria_name"]});
+                                                       }
+
+                                                       //alert(JSON.stringify(countries));
+                                                        autocomplete(document.getElementById("categoriai"), countries);
+                                                    },
+                                                    complete:function(){
+                                                        //corroborarSesion();
+
+                                                    },
+                                                    error: function(data){
+                                                    console.log(data);
+                                                        document.getElementById("msg_error").innerHTML="Hubo problemas al procesar la solicitud, verifique su conexión a internet";
+                            								    document.getElementById("title_error").innerHTML="Error";
+                                                                $("#myModalError").modal();
+                                                                return false;
+                                                    }
+                            });
+
+        }
+
+
+
+    function agregarIngrediente(){
+
+        contador_mas++;
+        contenido='<div class="col-recipe-ingredient" id="cont_ing_'+contador_mas+'">';
+        contenido+='                                    <i class="ic icon-weight"></i>';
+        contenido+='                                    <span class="count-of">+</span>';
+        contenido+='                                            <input type="text" class="form-control" placeholder="Ingrediente" name="ingrediente[]">';
+        contenido+='                                    <span class="remove-recipe-col" onclick="eliminarIngrediente('+contador_mas+')"><i class="fa fa-times"></i></span>';
+        contenido+='                                </div>';
+        //document.getElementById("contendor_ingredientes").appendChild(document.createTextNode(contenido));
+        //document.getElementById("contendor_ingredientes").innerHTML+=contenido;
+        document.getElementById("contendor_ingredientes").insertAdjacentHTML('beforeend', contenido);
+
+    }
+
+    function eliminarIngrediente(id){
+        contador_mas--;
+        elem=document.getElementById("cont_ing_"+id);
+        elem.parentNode.removeChild(elem);
+        return false;
+    }
+
+
+
+    function agregarPaso(){
+        contadorr_mas++;
+        contenido='<div class="col-recipe-instructions" id="cont_paso_'+contadorr_mas+'">';
+        contenido+='                                    <i class="ic icon-manual-madrab"></i>';
+        contenido+='                                    <span class="count-of">+</span>';
+        contenido+='                                            <input type="text" class="form-control" placeholder="Instrucción" name="instruccion[]">';
+        contenido+='                                            <input type="file"  class="finstruccion" name="finstruccion_'+contadorr_mas+'" id="finstruccion_'+contadorr_mas+'"  onchange="getFileInstruccion(this,'+contadorr_mas+');" style="display:none;"><input type="hidden" name="hfinstruccion_'+contadorr_mas+'" id="hfinstruccion_'+contadorr_mas+'"  class="hinstruccion" /> <img src="images/ico_photo.png" style="max-width:150px;width:80px;" id="imgi_'+contadorr_mas+'" onclick="$(\'#finstruccion_'+contadorr_mas+'\').click();"/>';
+        contenido+='                                            <input type="file" name="finstruccion_'+contadorr_mas+'_1'+'" id="finstruccion_'+contadorr_mas+'_1'+'"  onchange="getFileInstruccion(this,\"'+contadorr_mas+'_1\"'+');" style="display:none;"><input type="hidden" name="hfinstruccion_'+contadorr_mas+'_1'+'" id="hfinstruccion_'+contadorr_mas+'_1'+'" /> <img src="images/ico_photo.png" style="max-width:150px;width:80px;" id="imgi_'+contadorr_mas+'_1'+'" onclick="$(\'#finstruccion_'+contadorr_mas+'_1'+'\').click();"/>';
+        contenido+='                                            <input type="file" name="finstruccion_'+contadorr_mas+'_2'+'" id="finstruccion_'+contadorr_mas+'_2'+'"  onchange="getFileInstruccion(this,\"'+contadorr_mas+'_2\"'+');" style="display:none;"><input type="hidden" name="hfinstruccion_'+contadorr_mas+'_2'+'" id="hfinstruccion_'+contadorr_mas+'_2'+'" /> <img src="images/ico_photo.png" style="max-width:150px;width:80px;" id="imgi_'+contadorr_mas+'_2'+'" onclick="$(\'#finstruccion_'+contadorr_mas+'_2'+'\').click();"/>  <br>';
+        contenido+='                                    <span class="remove-recipe-col" onclick="eliminarPaso('+contadorr_mas+')"><i class="fa fa-times"></i></span>';
+        contenido+='                                </div>';
+        document.getElementById("contendor_instrucciones").insertAdjacentHTML('beforeend', contenido);
+        //document.getElementById("contendor_instrucciones").innerHTML+=contenido;
+
+    }
+
+    function eliminarPaso(id){
+        contadorr_mas--;
+        elem=document.getElementById("cont_paso_"+id);
+        elem.parentNode.removeChild(elem);
+        return false;
+    }
+
+
+    function modificarEstado(){
+
+        if(document.getElementById("estado").value==0){
+            document.getElementById("estado").value=1;
+        }else{
+            document.getElementById("estado").value=0;
+        }
+
+        document.getElementById("mi_form").submit();
+    }
+
+    function botones(){
+
+        if(document.getElementById("categoria").value==0){
+
+            document.getElementById("msg_error").innerHTML="Debes seleccionar una categoria para la receta";
+            document.getElementById("title_error").innerHTML="Error";
+            $("#myModalError").modal();
+            return false;
+
+
+        }
+
+
+        vegano=document.getElementById("vegano").checked;
+
+        if(vegano){
+            vegano="on";
+        }else{
+            vegano=0;
+        }
+
+        vegetariano=document.getElementById("vegetariano").checked;
+
+        if(vegetariano){
+            vegetariano="on";
+        }else{
+            vegetariano=0;
+        }
+
+        celiaco=document.getElementById("celiaco").checked;
+
+        if(celiaco){
+            celiaco="on";
+        }else{
+            celiaco=0;
+        }
+
+        ingredientes=[];
+
+        ing=document.getElementsByName("ingrediente[]");
+
+        for(i=0;i<ing.length;i++){
+            ingredientes.push(ing[i]["value"]);
+        }
+
+
+        instrucciones=[];
+
+        intr=document.getElementsByName("instruccion[]");
+
+        for(i=0;i<intr.length;i++){
+            instrucciones.push(intr[i]["value"]);
+        }
+
+        imagen_principal="";
+        if(mi_receta!=0){
+            imagen_principal=document.getElementById("imagen_principal").value;
+        }
+
+
+
+
+         var parametros = {
+
+                        "titulo":document.getElementById("titulo").value,
+                        "descripcion":document.getElementById("descripcion").value,
+                        "porciones":document.getElementById("porciones").value,
+                        "tiempo_preparacion":document.getElementById("tiempo_preparacion").value,
+                        "tiempo_coccion":document.getElementById("tiempo_coccion").value,
+                        "estado":document.getElementById("estado").value,
+                        "categoria":document.getElementById("categoria").value,
+                        "vegano": vegano,
+                        "vegetariano": vegetariano,
+                        "celiaco": celiaco,
+                        "ingrediente":ingredientes,
+                        "instruccion":instrucciones,
+                        "imagen_principal":imagen_principal,
+                        "usuario":mi_usuario,
+                        "id": mi_receta,
+
+
+
+
+
+                                                };
+
+
+                                                console.log(parametros);
+                                                //return false;
+       /* parametros=addValueInObject(parametros,"imagen_principal",document.getElementById("files").files[0]);
+
+        hinstrucciones=[];
+
+        hint=document.getElementsByClassName("hinstruccion");
+
+
+
+        for(i=0;i<hint.length;i++){
+            numeral=i+1;
+
+
+            parametros=addValueInObject(parametros,"hfinstruccion_"+numeral,hint[i]["value"]);
+            parametros=addValueInObject(parametros,"hfinstruccion_"+numeral+"_1",document.getElementById("hfinstruccion_"+numeral+"_1").value);
+            parametros=addValueInObject(parametros,"hfinstruccion_"+numeral+"_2",document.getElementById("hfinstruccion_"+numeral+"_2").value);
+            //parametros.push(hinstrucciones[i]);
+        }
+
+
+        finstrucciones=[];
+
+        fint=document.getElementsByClassName("finstruccion");
+
+
+
+        for(i=0;i<fint.length;i++){
+            numeral=i+1;
+
+
+            parametros=addValueInObject(parametros,"finstruccion_"+numeral,fint[i]["files"][0]);
+            parametros=addValueInObject(parametros,"finstruccion_"+numeral+"_1",document.getElementById("finstruccion_"+numeral+"_1").files[0]);
+            parametros=addValueInObject(parametros,"finstruccion_"+numeral+"_2",document.getElementById("finstruccion_"+numeral+"_2").files[0]);
+            //parametros.push(hinstrucciones[i]);
+        }*/
+
+                                                console.log(parametros);
+
+
+
+
+                            $.ajax({
+                                                    data:  parametros,
+                                                    type: 'POST',
+
+                                                    url: 'https://receteanding.com/index.php/app_controller/guardarRecetaJson',
+
+
+                                                    dataType: "json",
+
+                                                    success: function(data){
+                                                        console.log(data);
+                                                      //  alert(data["mensaje"]);
+                                                        mi_receta=data["resultado"];
+
+                                                       document.getElementById("btn_guardar").disabled=true;
+                                                        return true;
+                                                    },
+                                                    complete:function(){
+                                                        //corroborarSesion();
+                                                        cargarImagenPrincipal(mi_receta);
+                                                        cargarInstrucciones(mi_receta);
+                                                    },
+                                                    error: function(data){
+                                                    console.log(data);
+                                                        document.getElementById("msg_error").innerHTML="Hubo problemas al procesar la solicitud, verifique su conexión a internet";
+                            								    document.getElementById("title_error").innerHTML="Error";
+                                                                $("#myModalError").modal();
+                                                                return false;
+                                                    }
+                            });
+
+        /**/
+
+
+    }
+
+    function cargarImagenPrincipal(receta){
+        var inputFileImage = document.getElementById("files");
+	  var file = inputFileImage.files[0];
+
+	  if(file!=null && file["name"]!=mi_imagen_principal){
+
+
+
+      var data = new FormData();
+      data.append('userfile',file);
+      data.append('receta',receta);
+      var url = "https://receteanding.com/index.php/app_controller/modificarImagenPrincipal";
+        $.ajax({
+            url:url,
+            type:'POST',
+            contentType:false,
+            data:data,
+            processData:false,
+            cache:false,
+			success : function(response){
+					//btn_firma.text('Cambiar Imagen');
+
+					respuesta = $.parseJSON(response);
+
+					if(respuesta.respuesta == 'done'){
+						console.log("actualizada img principal")				;
+
+
+					}
+					else{
+						emitirAlerta(respuesta.mensaje);
+					}
+
+					//$('#loaderAjax').hide();
+
+				}});
+	  }
+    }
+
+    function cargarInstrucciones(receta){
+
+        instrucciones=[];
+
+        intr=document.getElementsByName("instruccion[]");
+
+        for(i=0;i<intr.length;i++){
+            instrucciones.push(intr[i]["value"]);
+        }
+
+
+        hinstrucciones=[];
+
+        hint=document.getElementsByClassName("hinstruccion");
+
+        var data = new FormData();
+
+
+        data.append("instrucciones",instrucciones);
+
+        for(i=0;i<hint.length;i++){
+            numeral=i+1;
+
+
+            data.append("hfinstruccion_"+numeral,hint[i]["value"]);
+            data.append("hfinstruccion_"+numeral+"_1",document.getElementById("hfinstruccion_"+numeral+"_1").value);
+            data.append("hfinstruccion_"+numeral+"_2",document.getElementById("hfinstruccion_"+numeral+"_2").value);
+            //parametros.push(hinstrucciones[i]);
+        }
+
+
+        finstrucciones=[];
+
+        fint=document.getElementsByClassName("finstruccion");
+
+
+
+        for(i=0;i<fint.length;i++){
+            numeral=i+1;
+
+            console.log(document.getElementById("finstruccion_"+numeral+"_2").files[0]);
+            data.append("finstruccion_"+numeral,fint[i]["files"][0]);
+            data.append("finstruccion_"+numeral+"_1",document.getElementById("finstruccion_"+numeral+"_1").files[0]);
+            data.append("finstruccion_"+numeral+"_2",document.getElementById("finstruccion_"+numeral+"_2").files[0]);
+            //parametros.push(hinstrucciones[i]);
+        }
+
+
+
+      data.append('receta',receta);
+      var url = "https://receteanding.com/index.php/app_controller/cargarInstrucciones";
+        $.ajax({
+            url:url,
+            type:'POST',
+            contentType:false,
+            data:data,
+            processData:false,
+            cache:false,
+			success : function(response){
+					//btn_firma.text('Cambiar Imagen');
+                    console.log(response);
+
+					respuesta = $.parseJSON(response);
+
+					if(respuesta.respuesta == 'done'){
+						console.log("actualizada instrucciones")				;
+
+
+					}
+					else{
+						alert(respuesta.mensaje);
+					}
+
+					//$('#loaderAjax').hide();
+
+				}});
+    }
+
+    function addValueInObject(object, key, value) {
+        var res = {};
+        var textObject = JSON.stringify(object);
+        if (textObject === '{}') {
+            res = JSON.parse('{"' + key + '":"' + value + '"}');
+        } else {
+            res = JSON.parse('{' + textObject.substring(1, textObject.length - 1) + ',"' + key + '":"' + value + '"}');
+        }
+        return res;
+    }
+
+    function eliminarReceta(){
+
+        if(confirm("Realmente deseas eliminar la receta?")){
+            window.location.href="index.php/site_controller/eliminarReceta/1";
+        }
+
+    }
+
+
+
+
+
+</script>
+
+
+<div id="loading">
+    <p align="center" style="padding-top:30%;"><img src="rece.png" style="width: 100px;" /> </p>
+    <p align="center" style="padding-top:10%;">CARGANDO INFORMACIÓN . . . </p>
+
+</div>
+
+<div id="myModalError" class="modal fade" role="dialog" style="margin-top:60px;z-index:999999;">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" id="title_error"></h4>
+            </div>
+            <div class="modal-body">
+                <p id="msg_error"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

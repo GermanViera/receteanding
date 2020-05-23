@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!-- Basic Page Needs -->
+
+    <title>Receteanding</title>
+    <meta name="description" content="Recetas para cocinar con amor">
+    <meta name="keywords" content="recetas">
+    <meta name="author" content="desarrollodelsur.com">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <style>
+		.sinc {
+	content: " ";
+	display: block;
+	margin-top: 130px;
+	font-size: 16px;
+}
+
+* {box-sizing: border-box;}
+
+/* Style the input container */
+.input-container {
+  display: flex;
+  width: 100%;
+  /*margin-bottom: 15px;*/
+}
+
+/* Style the form icons */
+.icon {
+  padding: 10px;
+  background: #7daf74;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+  height: 38px;
+}
+
+/* Style the input fields */
+.input-field {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+}
+
+.input-field:focus {
+  border: 2px solid dodgerblue;
+}
+
+/* Set a style for the submit button */
+.btn {
+
+  background-color: #7daf74;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+
+}
+
+.btn:hover {
+  opacity: 1;
+}
+
+
+
+	</style>
+    <!-- Main Style -->
+       <script src="js/comunicacion_swift.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="js/w3.js"></script>
+    <!-- customize CSS Style -->
+    <link rel="stylesheet" href="css/customize.css">
+
+    <!-- Skins Style -->
+    <link rel="stylesheet" href="css/skins/skins.css">
+
+    <!-- Responsive Style -->
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="images/icon.png">
+
+    <script>
+		window.addEventListener( "pageshow", function ( event ) {
+  var historyTraversal = event.persisted ||
+						 ( typeof window.performance != "undefined" &&
+							  window.performance.navigation.type === 2 );
+  if ( historyTraversal ) {
+	// Handle page restore.
+	window.location.reload();
+  }
+});
+		function printDiv(divName) {
+			 var printContents = document.getElementById(divName).innerHTML;
+			 var originalContents = document.body.innerHTML;
+
+			 document.body.innerHTML = printContents;
+
+			 window.print();
+
+			 document.body.innerHTML = originalContents;
+		}
+
+		function validarComentario(){
+			if(document.getElementById("txt_comentario").value!="" || document.getElementById("imagen_principal").value!=""){
+				return true;
+			}else{
+				alert("Debes ingresar texto en tu comentario o publicar una foto respuesta");
+				return false;
+			}
+		}
+	</script>
+
+    <style>
+		.bseguir{
+
+			background-color: #7daf74;
+			font-size: 16px;
+			color: #fff;
+			padding: 0 10px;
+			height: 35px;
+			line-height: 35px;
+			border-radius: 4px;
+			text-align:center;
+
+			margin-left:50px;
+			display: inline-block;
+
+		}
+
+		.nseguir{
+			margin-top: 15px;
+			display: inline-block;
+		}
+
+@media  (min-width:300px) and (max-width: 768px) {
+	.bseguir{
+   margin-left:0;
+   /*//margin-top:30px;
+	 //margin:0 auto;
+	// display: block;*/
+	}
+	.nseguir{
+		display:block;
+		margin-left:15px;
+	}
+	.siguiendom{
+		float:left;
+		width:100%;
+	}
+	.tags{
+		display:contents;
+	}
+}
+	</style>
+
+    <script src="js/general.js"></script>
+</head>
+<body class="sticky">
+
+<div id="wrap">
+    
+    <section class="parallax-window" id="short"  data-parallax="scroll" data-image-src="images/mis_recetas.jpg" data-natural-width="1400" data-natural-height="300">
+        <div id="sub_header">
+            <div class="container" id="sub_content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 id="h1_titulo"></h1>
+
+                    </div>
+                </div><!-- End row -->
+            </div><!-- End container -->
+        </div>
+    </section>
+
+
+
+
+    <!-- End SubHeader -->
+    <div class="white_bg" id="">
+        <div class="container margin_60">
+            <div class="row">
+                <div class="col-md-12">
+
+
+                    <div class="post-inner">
+
+                        <div class="info-icons" id="contenedor_preparacion"></div>
+
+                        <div class="post-img" id="contenedor_imagen_principal"></div>
+                        <div id="social_footer">
+                            <ul>
+                                <li><a href="javascript:void(0);" onclick= "openFacebook('https://www.facebook.com/sharer/sharer.php?u=https%3A//receteanding.com/index.php/site_controller/verReceta/id')"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="javascript:void(0);"  onclick="openTwitter('https://twitter.com/home?status=https%3A//receteanding.com/index.php/site_controller/verReceta/id')"><i class="fa fa-twitter"></i></a></li>
+                                <!--<li><a href="https://plus.google.com/share?url=https%3A//receteanding.com/index.php/site_controller/verReceta/<?=$id?>"><i class="fa fa-google-plus"></i></a></li>-->
+                                <li><a href="javascript:void(0);" onclick="openWhatsApp('whatsapp://send?text=https%3A//receteanding.com/index.php/site_controller/verReceta/id  RECETEANDING-Visita%20Receteanding%20cocinando%20con%20amor')" ><i class="fa fa-whatsapp fa-lg"></i></a></li>
+
+                            </ul>
+
+                        </div>
+
+
+                        <div class="col-sm-12	col-md-12	col-lg-12" style="margin: 0 auto;margin-bottom: 20px; display:none" id="contenedor_sponsors">
+
+
+                        </div>
+
+
+                        <h3 class="post-title" style="font-size: 30px;	font-weight: bold;" id="contenedor_tipos_comida"></h3>
+                        <div class="post-meta" id="contenedor_basico">
+
+                        </div>
+
+                        <div class="post-content">
+                            <h4>Descripci&oacute;n</h4>
+
+                            <div id="contenedor_descripcion"></div><br><br><br>
+
+
+
+                            <div class="stars-tags" style="margin-top: 20px;border-bottom: 3px solid #eee;border-top: 3px solid #eee;">
+                                <div style=" font-size:18px;     border-bottom: 3px solid #eee;
+	padding-bottom: 10px;" class="siguiendom">
+                                    <ul class="tags" style=" margin-top: 15px;    margin-right: 10px;    ">
+                                        <li><img src="https://morfeat.com/img/logo.png" style="float:left;    max-width: 55px;"/> <a onclick="quieroCocines();" href="javascript:void(0);" style="font-size:20px; display:flex; background-color:#7daf74; color:#FFFFFF; margin-top:5px; ">Quiero que me cocines!</a><br>
+                                        </li>
+
+                                    </ul>
+                                    <div>
+							<span class="nseguir" id="contenedor_seguir">
+
+
+							 </span>
+
+                                    </div>
+
+                                    <!--<ul class="stars">
+                                        <li class="active"><a href="#" class="icon"><i class="fa fa-star"></i></a></li>
+                                        <li class="active"><a href="#" class="icon"><i class="fa fa-star"></i></a></li>
+                                        <li class="active"><a href="#" class="icon"><i class="fa fa-star"></i></a></li>
+                                        <li><a href="#" class="icon"><i class="fa fa-star"></i></a></li>
+                                        <li><a href="#" class="icon"><i class="fa fa-star"></i></a></li>
+                                    </ul>-->
+
+                                    <!--<ul class="tags" style="margin-top:10px;">
+                                        <li><a href="<?=base_url()?>index.php/site_controller/quieroCocines/<?=$id?>" style="font-size:20px; ">Quiero que me cocines!</a><br>
+                                        </li>
+
+                                    </ul>-->
+
+                                </div>
+
+                                <h4>Ingredientes</h4>
+                                <div class="ul_list" style="margin-left:20px;" id="contenedor_ingredientes">
+
+                                </div><!-- End Ingredient -->
+
+                                <h4>Instrucciones</h4>
+                                <div class="ul_list_default" id="contenedor_instrucciones">
+
+                                </div><!-- End Instructions -->
+                            </div>
+
+
+
+
+
+
+
+
+                        </div>
+
+
+
+                        <div id="commentlist" class="page-content">
+
+                            <h3>Comentarios ( <span class="color" id="total_comentarios"></span> )</h3>
+                            <ol class="commentlist clearfix" id="cajaDeComentarios">
+
+                            </ol>
+
+
+                            <h3>Foto Respuestas ( <span class="color" id="total_foto_respuestas"></span> )</h3>
+                            <div class="container" style="">
+                                <div class="row" id="contenedor_foto_respuestas">
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="comment-form create-recipe">
+                            <h3>Deja un comentario</h3>
+                            <form action="<?=base_url()?>index.php/site_controller/guardarComentario" method="post" id="form_comentario" onsubmit="return validarComentario();">
+                                <div  id="contenedor_login_comentario" style="display:none">
+                                    <div class="form-group">
+                                        <input type="text" id="email" name="email" class="form-control" placeholder="Email">
+                                    </div>
+                                    <div class="form-group"  style="display:none">
+                                        <input type="password" id="password" name="password"  class="form-control" placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="input-container" style="    width: 80%;    ">
+
+                                    <img src="rece.png" class="img-circle"  style="max-width:50px;max-height:50px;margin-right: 10px;"  id="foto_sesion_comentario">
+
+                                    <input class="input-field" type="text" placeholder="Escribe un comentario ..." name="comentario" id="txt_comentario">
+                                    <i class="fa fa-send icon" style="cursor:pointer" onclick="if(document.getElementById('txt_comentario').value!=''){ guardarComentario();}"></i>
+                                </div>
+
+                                <h3>Deja tu foto respuesta</h3>
+                                <div class="add-photo" style="    width: 100%;
+	max-height: 400px;
+	height: 270px;    margin-bottom: 30px; border:0;">
+                                    <label class="icon-picture gray1" id="imagen_receta" style="    background-image: url(images/foto_respuesta.png);   width: 220px;
+	background-size: 100%;
+	max-height: 400px;
+	height: 292px;
+	content: '';
+	display: block;
+	margin: 0 auto;">
+                                        <input type="file" name="userfile" id="files">
+                                    </label>
+                                </div>
+
+                                <button type="button" class="btn  btn-primary" style="    max-width: 310px;    margin: 0 auto;    display: block;" onclick="guardarComentario();">Comparte tu Foto Respuesta</button>
+                                <input type="hidden" name="receta" value="" />
+                                <input type="hidden" name="imagen_principal" id="imagen_principal" />
+                            </form>
+                        </div>
+
+
+                    </div>
+
+                </div><!-- End row -->
+
+            </div><!-- End container -->
+        </div><!-- End white_bg -->
+        <!-- newslatter -->
+
+        <!-- End newslatter -->
+        <!-- Footer -->
+        <!-- Footer -->
+
+        <!-- End Footer -->
+    </div><!-- End wrap Page -->
+    <!-- go-up -->
+    <div class="go-up"><i class="fa fa-chevron-up"></i></div>
+    <!-- End go-up -->
+    <script>
+	   document.getElementById("files").onchange = function () {
+	var reader = new FileReader();
+
+
+
+	reader.onload = function (e) {
+		// get loaded data and render thumbnail.
+
+		document.getElementById("imagen_receta").style.backgroundImage = "url('"+e.target.result+"')";
+		document.getElementById("imagen_principal").value=e.target.result;
+	};
+
+	// read the image file as a data URL.
+	reader.readAsDataURL(this.files[0]);
+};
+   </script>
+
+
+
+
+    <div id="myModalError" class="modal fade" role="dialog" style="margin-top:60px;z-index:999999;">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="title_error"></h4>
+                </div>
+                <div class="modal-body">
+                    <p id="msg_error"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script>
+        var mi_receta=0;
+        mi_usuario=0;
+   </script>
+
+
+
+
+    <!-- COMMON SCRIPTS -->
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="js/jquery.easing.1.3.min.js"></script>
+    <script src="js/jquery.nicescroll.min.js"></script>
+    <script src="js/jquery.scrollTo.js"></script>
+    <script src="js/ResizeSensor.min.js"></script>
+    <script src="js/theia-sticky-sidebar.min.js"></script>
+    <script src="js/parallax.min.js"></script>
+    <script src="js/jquery.themepunch.plugins.min.js"></script>
+    <script src="js/jquery.themepunch.revolution.min.js"></script>
+    <script src="js/ion.rangeSlider.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/funciones.js"></script>
+    <script src="js/sistemaDeComentarios.js"></script>
+    <script>
+
+
+
+
+        (function(){
+         $(window).load(function(){
+                        var frag = window.location.hash;
+                        varTitle = decodeURIComponent(frag);
+                        parametros = varTitle.split('#');
+                        if (parametros.length == 4) {
+                           // alert("entre en largo 4");
+                            mi_usuario = parametros[1];
+                            id = parametros[2];
+                            idreceta = parametros[3];
+                        }
+                        if (parametros.length == 3) {
+                           // alert("entre en largo 3");
+                            mi_usuario = parametros[1];
+                            idreceta = parametros[2];
+                        }
+                        traerReceta(idreceta);
+                        traerInstrucciones(idreceta);
+                       traerComentariosActivos(idreceta);
+                       traerFotoRespuestasActivas(idreceta);
+                       AJAXComentarios.listarComentariosReceta();
+                     
+                        });
+         
+         })(jQuery);
+
+
+
+        function traerReceta(id){
+            mi_receta=id;
+            var parametros = {
+
+                        "id":id,
+                        "usuario":mi_usuario
+
+
+                                                };
+
+                                                console.log(parametros);
+
+
+
+
+                            $.ajax({
+                                                    data:  parametros,
+                                                    type: 'POST',
+                                                    url: 'https://receteanding.com/index.php/app_controller/verRecetaJson',
+
+
+                                                    dataType: "json",
+
+                                                    success: function(data){
+                                                    console.log(data);
+
+                                                       if(data!=null){
+
+                                                           document.getElementById("h1_titulo").innerHTML=data["titulo"];
+                                                           document.getElementById("contenedor_preparacion").innerHTML='<div class="semipart"><i class="ic icon-x-forks"></i> Tiempo de Preparaci&oacute;n '+data["preparacion"]+' min</div><div class="semipart"><i class="ic icon-timer"></i> Tiempo de Cocci&oacute;n '+data["coccion"]+' min</div><div class="semipart"><i class="ic icon-community2"></i> Porciones '+data["porciones"]+'</div>';
+                            								if(data["foto_ruta"]!=null && data["foto_ruta"]!=""){
+
+                            								    document.getElementById("contenedor_imagen_principal").innerHTML='<img src="'+data["foto_ruta"]+'" class="pin-image" alt="" style="max-width: 320px;	margin: 0 auto;	display: block;">';
+
+                            								}else{
+
+                            								    document.getElementById("contenedor_imagen_principal").innerHTML='<img src="https://placehold.it/650x350" alt="" style="max-width: 320px;	margin: 0 auto;	display: block;">';
+
+                            								}
+
+                            								if(data["sponsors"]!=null && data["sponsors"].length>0){
+                            								    contenido_sponsors='<p><strong>RECETA AUSPICIADA POR</strong></p>';
+
+                            								    for(i=0;i<data["sponsors"].length;i++){
+                            								        if(i<4){
+                            								            contenido_sponsors+='<div class="col-sm-3	col-md-3	col-lg-3" style="margin-top:20px;"><a href="'+data["sponsors"][i]["sf_link"]+'"><img src="https://morfeat.com/admin/'+data["sponsors"][i]["foto_ruta"]+'"/></a></div>';
+                            								        }
+                            								    }
+                            								    document.getElementById("contenedor_sponsors").innerHTML=contenido_sponsors;
+                            								    document.getElementById("contenedor_sponsors").style.display="inline-flex";
+
+                            								}
+
+                            								contenido_tipo_comidas=data["titulo"];
+                            								if(data["vegano"]==1){
+                            								    contenido_tipo_comidas+='<img src="images/iconos/vegano.png" style="width: 50px;"/>';
+                            								}
+
+                            								if(data["vegetariano"]==1){
+                            								    contenido_tipo_comidas+='<img src="images/iconos/vegetariano.png"  style="width: 50px;"/>';
+                            								}
+								                            if(data["celiaco"]==1){
+								                                contenido_tipo_comidas+='<img src="images/iconos/celiaco.png"  style="width: 50px;"/>';
+								                            }
+								                            document.getElementById("contenedor_tipos_comida").innerHTML=contenido_tipo_comidas;
+
+							                                document.getElementById("contenedor_descripcion").innerHTML=data["descripcion"];
+
+							                                contenido_basico='';
+
+                            								if(data["nick"]!=null && data["nick"]!=""){
+
+                            									contenido_basico+='<span class="meta-author"><img src="images/iconos/cocinero.png" style="width: 15px;margin-right: 10px; margin-left:10px;" /><span style="margin-top:5px;">'+data["nick"]+'</span></span>';
+
+                            								}else{
+
+                            									contenido_basico+='<span class="meta-author"><img src="images/iconos/cocinero.png" style="width: 15px;margin-right: 10px; margin-left:10px;" /><span style="margin-top:5px;">'+data["usuario_nombre"]+'</span></span>';
+
+
+                            								}
+
+
+                            								contenido_basico+='<span class="meta-date"><img src="images/iconos/calendario.png" style="width: 15px;margin-right: 10px; margin-left:10px;" />'+data["fecha_formateada"]+'</span>';
+                            								contenido_basico+='<span class="meta-categories"><img src="images/iconos/receta.png" style="width: 15px;margin-right: 10px; margin-left:10px;" />'+data["categoria_nombre"]+'</span>';
+                            								contenido_basico+='<span class="meta-comment"><img src="images/iconos/comentarios.png" style="width: 15px;margin-right: 10px; margin-left:10px;" />';
+                            								if(data["comentarios_usuario"]!=null){
+                            								    contenido_basico+=data["comentarios_usuario"].length+' comentarios</span>';
+                            								}
+                            								document.getElementById("contenedor_basico").innerHTML=contenido_basico;
+
+
+                            								contenido_seguir='<div class="avatar" style="border:0;float: left;    margin-right: 10px; margin-top:-10px;">';
+
+                                											if(data["usuario_foto"]!=null && data["usuario_foto"]!=""){
+
+                                												contenido_seguir+='<img alt="" class="img-circle" src="'+data["usuario_foto"]+'" style="width:40px;" >';
+
+                                											}else{
+
+                                												contenido_seguir+='<img alt=""  class="img-circle" src="rece.png"  class="img-circle"  style="max-width:30px;max-height:30px;margin: 10px;">';
+
+                                											}
+
+
+                                											contenido_seguir+='</div>';
+
+                                								if(data["nick"]!=null && data["nick"]!=""){
+
+                                									contenido_seguir+=data["nick"];
+                                								}else{
+                                									contenido_seguir+=data["usuario_nombre"];
+                                								}
+
+
+
+                                								if(mi_usuario!=0){
+                                									if(data["seguidores"]!=null && data["seguidores"].length>0){
+
+                                										contenido_seguir+='<a onclick="eliminarSeguirUsuario('+data["usuario_id"]+')"  href="javascript:void(0)" class="bseguir">Siguiendo</a>';
+
+                                									}else{
+
+                                										contenido_seguir+='<a  onclick="guardarSeguirUsuario('+data["usuario_id"]+')" href="javascript:void(0)" class="bseguir ">Seguir</a>';
+
+                                									}
+                                								}
+
+                                								document.getElementById("contenedor_seguir").innerHTML=contenido_seguir;
+
+
+                                								if(data["ingredientes"]!=null && data["ingredientes"].length>0){
+                                								    contenido_ingredientes='<ul>';
+
+                                								    for(i=0;i<data["ingredientes"].length; i++){
+                                								        contenido_ingredientes+='<li>'+data["ingredientes"][i]["ingrediente_ingrediente"]+'</li>';
+                                								    }
+
+                                								    contenido_ingredientes+='</ul>';
+                                								    document.getElementById("contenedor_ingredientes").innerHTML=contenido_ingredientes;
+                                								}
+
+                                								if(mi_usuario!=0 && mi_usuario>0){
+                                								    document.getElementById("contenedor_login_comentario").style.display='none';
+                                								}else{
+                                								    document.getElementById("contenedor_login_comentario").style.display='';
+                                								}
+
+
+
+
+
+                                                       }
+
+
+
+                                                    },
+                                                    complete:function(){
+                                                        //corroborarSesion();
+
+                                                    },
+                                                    error: function(data){
+                                                    console.log(data);
+                                                        alert("Error al conectar con el servicio");
+                                                    }
+                            });
+        }
+
+
+        function traerInstrucciones(id){
+
+            var parametros = {
+
+                        "id":id
+
+
+                                                };
+
+                                                console.log(parametros);
+
+
+
+
+                            $.ajax({
+                                                    data:  parametros,
+                                                    type: 'POST',
+                                                    url: 'https://receteanding.com/index.php/app_controller/verInstruccionesJson',
+
+
+                                                    dataType: "json",
+
+                                                    success: function(data1){
+                                                    console.log(data1);
+
+                                                       if(data1!=null){
+
+
+                                					contenido_instrucciones='';
+
+                                								if(data1["instrucciones"]!=null && data1["instrucciones"].length>0){
+                                								    contenido_instrucciones='<ol style="    padding-left: 20px;">';
+
+                                								    for(i1=0;i1<data1["instrucciones"].length; i1++){
+
+
+										  contenido_instrucciones+='<li>'+data1["instrucciones"][i1]["instruccion_instruccion"];
+
+										  if(data1["instrucciones"][i1]["instruccion_url"]!=null && data1["instrucciones"][i1]["instruccion_url"]!=""){
+
+											  contenido_instrucciones+='<br><div class="minstrucciones"  style="background-image: url(\'https://morfeat.com/admin/'+data1["instrucciones"][i1]["instruccion_url"]+'\');"  data-toggle="modal" data-target="#myModal'+data1["instrucciones"][i1]["instruccion_receta"]+data1["instrucciones"][i1]["instruccion_orden"]+'1"></div>';
+	                                          contenido_instrucciones+='<div id="myModal'+data1["instrucciones"][i1]["$ins->instruccion_receta"]+data1["instrucciones"][i1]["instruccion_orden"]+'1" class="modal fade" role="dialog">';
+		                                      contenido_instrucciones+='<div class="modal-dialog">';
+                                              contenido_instrucciones+='<div class="modal-content">';
+			                                  contenido_instrucciones+='<div class="modal-header">';
+				                              contenido_instrucciones+='<button type="button" class="close" data-dismiss="modal">&times;</button>';
+				                              contenido_instrucciones+='<h4 class="modal-title"></h4>';
+			                                  contenido_instrucciones+='</div>';
+			                                  contenido_instrucciones+='<div class="modal-body">';
+				                              contenido_instrucciones+='<p style="text-align:center;"><img src="https://morfeat.com/admin/'+data1["instrucciones"][i1]["instruccion_url"]+' class="img-responsive" style="margin:0 auto;" /></p>';
+			                                  contenido_instrucciones+='</div>';
+			                                  contenido_instrucciones+='<div class="modal-footer">';
+				                              contenido_instrucciones+='<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>';
+			                                  contenido_instrucciones+='</div>';
+			                                  contenido_instrucciones+='</div>';
+   	                                          contenido_instrucciones+='</div>';
+	                                          contenido_instrucciones+='</div>';
+
+										}
+
+										  if(data1["instrucciones"][i1]["instruccion_url_1"]!=null && data1["instrucciones"][i1]["instruccion_url_1"]!=""){
+
+											contenido_instrucciones+='<div  class="minstrucciones" style="background-image: url(\'https://morfeat.com/admin/'+data1["instrucciones"][i1]["instruccion_url_1"]+'\');" data-toggle="modal" data-target="#myModal'+data1["instrucciones"][i1]["instruccion_receta"]+data1["instrucciones"][i1]["instruccion_orden"]+'2"></div>';
+                                	        contenido_instrucciones+='<div id="myModal'+data1["instrucciones"][i1]["instruccion_receta"]+data1["instrucciones"][i1]["instruccion_orden"]+'2" class="modal fade" role="dialog">';
+                                		    contenido_instrucciones+='<div class="modal-dialog">';
+
+
+                                			contenido_instrucciones+='<div class="modal-content">';
+                                			contenido_instrucciones+='<div class="modal-header">';
+                                			contenido_instrucciones+='	<button type="button" class="close" data-dismiss="modal">&times;</button>';
+                                			contenido_instrucciones+='	<h4 class="modal-title"></h4>';
+                                			contenido_instrucciones+='  </div>';
+                                			contenido_instrucciones+='  <div class="modal-body">';
+                                			contenido_instrucciones+='	<p><img src="https://morfeat.com/admin/'+data1["instrucciones"][i1]["instruccion_url_1"]+'" class="img-responsive" /></p>';
+                                			contenido_instrucciones+='  </div>';
+                                			contenido_instrucciones+='  <div class="modal-footer">';
+                                			contenido_instrucciones+='	<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>';
+                                			contenido_instrucciones+='  </div>';
+                                			contenido_instrucciones+='</div>';
+
+                                		    contenido_instrucciones+='</div>';
+                                	        contenido_instrucciones+='</div>';
+
+										}
+
+
+
+										  if(data1["instrucciones"][i1]["instruccion_url_2"]!=null && data1["instrucciones"][i1]["instruccion_url_2"]!=""){
+
+											contenido_instrucciones+='<div  class="minstrucciones"  style="background-image: url(\'https://morfeat.com/admin/'+data1["instrucciones"][i1]["instruccion_url_2"]+'\');" data-toggle="modal" data-target="#myModal'+data1["instrucciones"][i1]["instruccion_receta"]+data1["instrucciones"][i1]["instruccion_orden"]+'3"></div>';
+                                        	contenido_instrucciones+='<div id="myModal'+data1["instrucciones"][i1]["instruccion_receta"]+data1["instrucciones"][i1]["instruccion_orden"]+'3" class="modal fade" role="dialog">';
+                                        	contenido_instrucciones+='	  <div class="modal-dialog">';
+
+
+                                        	contenido_instrucciones+='		<div class="modal-content">';
+                                        	contenido_instrucciones+='		  <div class="modal-header">';
+                                        	contenido_instrucciones+='			<button type="button" class="close" data-dismiss="modal">&times;</button>';
+                                        	contenido_instrucciones+='			<h4 class="modal-title"></h4>';
+                                        	contenido_instrucciones+='		  </div>';
+                                        	contenido_instrucciones+='		  <div class="modal-body">';
+                                        	contenido_instrucciones+='			<p><img src="https://morfeat.com/admin/'+data1["instrucciones"][i1]["instruccion_url_2"]+'" class="img-responsive" /></p>';
+                                        	contenido_instrucciones+='		  </div>';
+                                        	contenido_instrucciones+='		  <div class="modal-footer">';
+                                        	contenido_instrucciones+='			<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>';
+                                        	contenido_instrucciones+='		  </div>';
+                                        	contenido_instrucciones+='		</div>';
+
+                                        	contenido_instrucciones+='	  </div>';
+                                        	contenido_instrucciones+='</div>';
+
+										}
+
+											  contenido_instrucciones+='<div class="clearfix">&nbsp;</div>';
+											  contenido_instrucciones+='</li>';
+
+										}
+
+
+
+                                								    }
+
+                                								    contenido_instrucciones+='</ol>';
+                                								    document.getElementById("contenedor_instrucciones").innerHTML=contenido_instrucciones;
+
+
+
+
+
+
+                                                       }
+
+
+
+                                                    },
+                                                    complete:function(){
+                                                        //corroborarSesion();
+
+                                                    },
+                                                    error: function(data){
+                                                    console.log(data);
+                                                        alert("Error al conectar con el servicio");
+                                                    }
+                            });
+        }
+
+
+        function traerComentariosActivos(id){
+
+            var parametros = {
+
+                        "id":id
+
+
+                                                };
+
+                                                console.log(parametros);
+
+
+
+
+                            $.ajax({
+                                                    data:  parametros,
+                                                    type: 'POST',
+                                                    url: 'https://receteanding.com/index.php/app_controller/verComentariosRecetaJson',
+
+
+                                                    dataType: "json",
+
+                                                    success: function(data2){
+                                                    console.log(data2);
+
+                                                       if(data2!=null && data2.length>0){
+
+                            								document.getElementById("total_comentarios").innerHTML=data2.length;
+
+                                                       }else{
+
+                                                           document.getElementById("total_comentarios").innerHTML=0;
+                                                       }
+
+
+
+                                                    },
+                                                    complete:function(){
+                                                        //corroborarSesion();
+
+                                                    },
+                                                    error: function(data){
+                                                    console.log(data);
+                                                        alert("Error al conectar con el servicio");
+                                                    }
+                            });
+        }
+
+
+        function traerFotoRespuestasActivas(id){
+
+            var parametros = {
+
+                        "id":id
+
+
+                                                };
+
+                                                console.log(parametros);
+
+
+
+
+                            $.ajax({
+                                                    data:  parametros,
+                                                    type: 'POST',
+                                                    url: 'https://receteanding.com/index.php/app_controller/verFotoRespuestasRecetaJson',
+
+
+                                                    dataType: "json",
+
+                                                    success: function(data3){
+                                                    console.log(data3);
+
+                                                       if(data3!=null && data3.length>0){
+
+                            								document.getElementById("total_foto_respuestas").innerHTML=data3.length;
+
+                                                       }else{
+
+                                                           document.getElementById("total_foto_respuestas").innerHTML=0;
+                                                       }
+
+                                                        i=0;
+                                                        contenido_foto_respuestas='<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" style="text-align:center;max-height: 300px;	height: 300px;">';
+                                                        for(z=0;z<data3.length;z++){
+
+                                                            if(data3[z]["foto_comentario"]!=null &&  data3[z]["foto_comentario"]!=""){
+
+                                                                contenido_foto_respuestas+='<img src="'+data3[z]["foto_comentario"]+'" class="img-circle"  style="max-width:30px;max-height:30px;margin: 10px;">';
+
+                                                                if(data3[z]["nick_u_comentario"]==null || data3[z]["nick_u_comentario"]==""){
+
+                													contenido_foto_respuestas+='<span>'+data3[z]["nombre_u_comentario"]+' '+data3[z]["apellido_u_comentario"]+'</span>';
+
+                												}else{
+
+                													contenido_foto_respuestas+='<span>'+data3[z]["nick_u_comentario"]+'</span>';
+
+                												}
+
+                                                            }else{
+
+                        									    contenido_foto_respuestas+='<img src="rece.png" class="img-circle"  style="max-width:30px;max-height:30px;margin: 10px;">';
+
+                        										if(data3[z]["nick_u_comentario"]==null || data3[z]["nick_u_comentario"]==""){
+
+                        										    contenido_foto_respuestas+='<span>'+data3[z]["nombre_u_comentario"]+' '+data3[z]["apellido_u_comentario"]+'</span>';
+
+                        										}else{
+
+                        										    contenido_foto_respuestas+='<span>'+data3[z]["nick_u_comentario"]+'</span>';
+
+                        										}
+
+
+                        									}
+
+                        									if(data3[z]["comentario_foto_url"]!=null && data3[z]["comentario_foto_url"]!=""){
+
+											                    contenido_foto_respuestas+='<div style="background: url('+data3[z]["comentario_foto_url"]+'); width:180px; height:150px;background-repeat: no-repeat;background-size:cover;  margin: 0 auto;" data-toggle="modal" data-target="#myModalc'+data3[z]["comentario_id"]+'"> </div>';
+	                                                            contenido_foto_respuestas+='<div id="myModalc'+data3[z]["comentario_id"]+'" class="modal fade" role="dialog">';
+		                                                        contenido_foto_respuestas+='<div class="modal-dialog">';
+
+			                                                    contenido_foto_respuestas+='<div class="modal-content">';
+                                                    			  contenido_foto_respuestas+='<div class="modal-header">';
+                                                    			  contenido_foto_respuestas+='	<button type="button" class="close" data-dismiss="modal">&times;</button>';
+                                                    			  contenido_foto_respuestas+='	<h4 class="modal-title"></h4>';
+                                                    			  contenido_foto_respuestas+='</div>';
+                                                    			  contenido_foto_respuestas+='<div class="modal-body">';
+                                                    			  contenido_foto_respuestas+='	<p><img src="'+data3[z]["comentario_foto_url"]+'" class="img-responsive" /></p>';
+                                                    			  contenido_foto_respuestas+='</div>';
+                                                    			  contenido_foto_respuestas+='<div class="modal-footer">';
+                                                    			  contenido_foto_respuestas+='	<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>';
+                                                    			  contenido_foto_respuestas+='</div>';
+                                                    			  contenido_foto_respuestas+='</div>';
+
+                                                    		      contenido_foto_respuestas+='</div>';
+                                                    	          contenido_foto_respuestas+='</div>';
+
+
+                                                                  if(data3[z]["comentario_comentario"]!=null && data3[z]["comentario_comentario"]!=""){
+
+                                                                	  contenido_foto_respuestas+='<div class="text"><p style="text-align:center;">'+data3[z]["comentario_comentario"]+'</p></div>';
+
+                                                                  }
+
+
+											                }
+
+
+
+								                            contenido_foto_respuestas+='</div>';
+
+                        									  if(i==2){
+
+                        										 contenido_foto_respuestas+='<div class="clearfix" style="margin-bottom: 20px;"></div>';
+
+                        										  i=-1;
+                        									  }
+                        									  i++;
+
+
+
+
+
+                                                        }
+
+
+
+
+                                                    document.getElementById("contenedor_foto_respuestas").innerHTML=contenido_foto_respuestas;
+
+
+
+
+
+
+
+
+
+
+
+
+                                                    },
+                                                    complete:function(){
+                                                        //corroborarSesion();
+
+                                                    },
+                                                    error: function(data){
+                                                    console.log(data);
+                                                        alert("Error al conectar con el servicio");
+                                                    }
+                            });
+        }
+
+        function eliminarSeguirUsuario(usu_eliminar){
+
+             var parametros = {
+
+                        "mi_usuario":mi_usuario,
+                        "usuario_eliminar":usu_eliminar
+
+
+                                                };
+
+                                                console.log(parametros);
+
+
+
+
+                            $.ajax({
+                                                    data:  parametros,
+                                                    type: 'POST',
+                                                    url: 'https://receteanding.com/index.php/app_controller/eliminarSeguirUsuarioJson',
+
+
+                                                    dataType: "json",
+
+                                                    success: function(data4){
+                                                    console.log(data4);
+
+                                                       if(data4!=null){
+
+                            								if(data4["respuesta"]==1){
+                            								    document.getElementById("msg_error").innerHTML="Se proceso correctamente la solicitud";
+                            								    document.getElementById("title_error").innerHTML="Atención";
+                                                                $("#myModalError").modal();
+
+                                                                traerReceta(mi_receta);
+                                                                return false;
+                            								}else{
+                            								    document.getElementById("msg_error").innerHTML="Hubo problemas al procesar la solicitud";
+                            								    document.getElementById("title_error").innerHTML="Error";
+                                                                $("#myModalError").modal();
+                                                                return false;
+                            								}
+
+                                                       }
+
+
+
+                                                    },
+                                                    complete:function(){
+                                                        //corroborarSesion();
+
+                                                    },
+                                                    error: function(data){
+                                                    console.log(data);
+                                                                document.getElementById("msg_error").innerHTML="Hubo problemas al procesar la solicitud, verifique su conexión a internet";
+                            								    document.getElementById("title_error").innerHTML="Error";
+                                                                $("#myModalError").modal();
+                                                                return false;
+                                                    }
+                            });
+
+
+        }
+
+
+        function guardarSeguirUsuario(usu_seguir){
+
+            var parametros = {
+
+                        "mi_usuario":mi_usuario,
+                        "usuario_seguir":usu_seguir
+
+
+                                                };
+
+                                                console.log(parametros);
+
+
+
+
+                            $.ajax({
+                                                    data:  parametros,
+                                                    type: 'POST',
+                                                    url: 'https://receteanding.com/index.php/app_controller/guardarSeguirUsuarioJson',
+
+
+                                                    dataType: "json",
+
+                                                    success: function(data4){
+                                                    console.log(data4);
+
+                                                       if(data4!=null){
+
+                            								if(data4["respuesta"]>=1){
+                            								    document.getElementById("msg_error").innerHTML="Se proceso correctamente la solicitud";
+                            								    document.getElementById("title_error").innerHTML="Atención";
+                                                                $("#myModalError").modal();
+
+                                                                 traerReceta(mi_receta);
+                                                                return false;
+                            								}else{
+                            								    document.getElementById("msg_error").innerHTML="Hubo problemas al procesar la solicitud";
+                            								    document.getElementById("title_error").innerHTML="Error";
+                                                                $("#myModalError").modal();
+                                                                return false;
+                            								}
+
+                                                       }
+
+
+
+                                                    },
+                                                    complete:function(){
+                                                        //corroborarSesion();
+
+                                                    },
+                                                    error: function(data){
+                                                    console.log(data);
+                                                                document.getElementById("msg_error").innerHTML="Hubo problemas al procesar la solicitud, verifique su conexión a internet";
+                            								    document.getElementById("title_error").innerHTML="Error";
+                                                                $("#myModalError").modal();
+                                                                return false;
+                                                    }
+                            });
+
+
+        }
+
+
+        function guardarComentario(){
+            alert("ENTRE");
+            var parametros = {
+
+                        "mi_usuario":mi_usuario,
+                        "email":document.getElementById("email").value,
+                        "password":document.getElementById("password").value,
+                        "comentario":document.getElementById("txt_comentario").value,
+                        "imagen_principal":document.getElementById("imagen_principal").value,
+                        "receta":mi_receta
+
+
+
+
+                                                };
+
+                                                console.log(parametros);
+
+
+
+
+                            $.ajax({
+                                                    data:  parametros,
+                                                    type: 'POST',
+                                                    url: 'https://receteanding.com/index.php/app_controller/guardarComentario',
+
+
+                                                    dataType: "json",
+
+                                                    success: function(data5){
+                                                    console.log(data5);
+
+                                                       if(data5!=null){
+
+                            								if(data5["resultado"]>=1){
+                            								    document.getElementById("msg_error").innerHTML=data5["mensaje"];
+                            								    document.getElementById("title_error").innerHTML="Atención";
+                                                                $("#myModalError").modal();
+                                                                document.getElementById("txt_comentario").value="";
+                                                                 AJAXComentarios.listarComentariosReceta();
+                                                                 traerFotoRespuestasActivas(mi_receta);
+                                                                 traerReceta(mi_receta);
+                                                                return false;
+                            								}else{
+                            								    document.getElementById("msg_error").innerHTML=data5["mensaje"];
+                            								    document.getElementById("title_error").innerHTML="Error";
+                                                                $("#myModalError").modal();
+                                                                return false;
+                            								}
+
+                                                       }
+
+
+
+                                                    },
+                                                    complete:function(){
+                                                        //corroborarSesion();
+
+                                                    },
+                                                    error: function(data){
+                                                    console.log(data);
+                                                                document.getElementById("msg_error").innerHTML="Hubo problemas al procesar la solicitud, verifique su conexión a internet";
+                            								    document.getElementById("title_error").innerHTML="Error";
+                                                                $("#myModalError").modal();
+                                                                return false;
+                                                    }
+                            });
+
+
+        }
+    
+    
+    
+    function quieroCocines(){
+        
+        var parametros = {
+            
+            "mi_usuario":mi_usuario,
+            "receta":mi_receta
+            
+            
+        };
+        
+        console.log(parametros);
+        
+        
+        
+        
+        $.ajax({
+               data:  parametros,
+               type: 'POST',
+               url: 'https://receteanding.com/index.php/app_controller/quieroCocines',
+               
+               
+               dataType: "json",
+               
+               success: function(data4){
+               console.log(data4);
+               
+               
+               document.getElementById("msg_error").innerHTML=data4["mensaje"];
+               document.getElementById("title_error").innerHTML="Hola";
+               $("#myModalError").modal();
+               
+               
+               
+               
+               },
+               complete:function(){
+               //corroborarSesion();
+               
+               },
+               error: function(data){
+               console.log(data);
+               document.getElementById("msg_error").innerHTML="Hubo problemas al procesar la solicitud, verifique su conexión a internet";
+               document.getElementById("title_error").innerHTML="Error";
+               $("#myModalError").modal();
+               return false;
+               }
+               });
+               
+               
+    }
+
+
+        </script>
+
+
+
+<!--
+    <script  type="text/javascript"  async defer  src="//assets.pinterest.com/js/pinit.js">
+    </script>
+    <script>
+			function pinterestShareFormatter(imgSelector) {
+				alert("hola");
+				var imgs = document.querySelectorAll(imgSelector),
+					baseUrl = '//www.pinterest.com/pin/create/button/?';
+
+				[].forEach.call(imgs, function(img) {
+				var imgSrc = img.getAttribute('src'),
+					articleUrl = img.getAttribute('article-url') ? img.getAttribute('article-url') : window.location.href, //  check if there is article url attribute and if not assign the current page url.
+					parentAnchorEl = img.parentNode;
+
+				// check if parent element is <a>
+				if(parentAnchorEl.tagName === 'A') {
+				  // format the url params
+				  var params = {
+					url: articleUrl,
+					media: imgSrc
+				  },
+				  paramsString = Object.keys(params).map(function(key){return key + '=' + encodeURIComponent(params[key]);}).join('&');
+
+				  // update the anchor with formatted url
+				  parentAnchorEl.setAttribute('href', baseUrl + paramsString);
+				}
+			  });
+			}
+		</script>
+
+-->
+
+</body>
+</html>

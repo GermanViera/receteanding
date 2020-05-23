@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"><![endif]-->
+<!--[if IE 9 ]><html class="ie ie9" lang="en"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+	<!-- Basic Page Needs -->
+	<meta charset="utf-8">
+	<title>Categorías | Receteanding</title>
+	<meta name="description" content="Recipes Food - Food & Recipes Food Template">
+     <meta name="keywords" content="recipes food, recipes , sushi, chinese, italian food">
+	<meta name="author" content="themearabia.net">
+
+<!-- Main Style -->
+    <script src="js/comunicacion_swift.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="js/w3.js"></script>
+    <!-- customize CSS Style -->
+    <link rel="stylesheet" href="css/customize.css">
+
+    <!-- Skins Style -->
+    <link rel="stylesheet" href="css/skins/skins.css">
+
+    <!-- Responsive Style -->
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="images/icon.png">
+    
+    <!-- Skins -->
+    <!-- just remove the below comments witch color skin you want to use -->
+    <!--<link rel="stylesheet" href="css/skins/blue.css">-->
+    <!--<link rel="stylesheet" href="css/skins/yellow.css">-->
+    <!--<link rel="stylesheet" href="css/skins/green.css">-->
+    <!--<link rel="stylesheet" href="css/skins/cyan.css">-->
+    <!--<link rel="stylesheet" href="css/skins/orange.css">-->
+    <!--<link rel="stylesheet" href="css/skins/pink.css">-->
+    <!--<link rel="stylesheet" href="css/skins/purple.css">-->
+    <!--<link rel="stylesheet" href="css/skins/red.css">-->
+    <!--<link rel="stylesheet" href="css/skins/lactic.css">-->
+    <!--<link rel="stylesheet" href="css/skins/darkred.css">-->
+
+</head>
+<body class="sticky">
+
+    <div id="wrap">
+        
+
+        </div><!-- End container -->
+        </header>
+        <!-- SubHeader -->
+        <section class="parallax-window" id="short"  data-parallax="scroll" data-image-src="images/s_recetas.jpg" data-natural-width="1400" data-natural-height="300">
+            <div id="sub_header">
+                <div class="container" id="sub_content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1>Categorías</h1>
+                            <!--<h3>Qui debitis meliore ex, tollit debitis conclusionemque te eos.</h3>-->
+                        </div>
+                    </div><!-- End row -->
+                </div><!-- End container -->
+            </div>
+        </section>
+        <!-- End SubHeader -->
+
+        <div class="white_bg">
+            <div class="container margin_60">
+                <div class="row">
+                    
+                    <!-- End sidebar -->
+                    <div class="col-md-12  col-sm-12 col-xs-12">
+                        <div class="row" id="contenedor_categorias">
+                            <img src="images/loading.gif" style="margin: 0 auto; display: block;" />
+                            
+                           
+                           
+                            <!-- END product-item -->
+                        </div>
+                        <div class="row">
+                            <!--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <nav class="navigation pagination">
+                                    <div class="nav-links">
+                                        <a class="prev page-numbers">Previous</a>
+                                        <span class="page-numbers current">1</span>
+                                        <a class="page-numbers" href="#">2</a>
+                                        <a class="page-numbers" href="#">3</a>
+                                        <a class="page-numbers" href="#">4</a>
+                                        <a class="page-numbers" href="#">5</a>
+                                        <a class="next page-numbers" href="#">Next</a>
+                                    </div>
+                                </nav>
+                            </div>-->
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        
+        <!-- End newslatter -->
+        <!-- Footer -->
+        <!-- End Footer -->
+    </div><!-- End wrap Page -->
+    <!-- go-up -->
+    <div class="go-up"><i class="fa fa-chevron-up"></i></div>
+    <!-- End go-up -->
+    
+    <!-- COMMON SCRIPTS -->
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="js/jquery.easing.1.3.min.js"></script>
+    <script src="js/jquery.nicescroll.min.js"></script>
+    <script src="js/jquery.scrollTo.js"></script>
+    <script src="js/ResizeSensor.min.js"></script>
+    <script src="js/theia-sticky-sidebar.min.js"></script>
+    <script src="js/parallax.min.js"></script>
+    <script src="js/jquery.themepunch.plugins.min.js"></script>
+    <script src="js/jquery.themepunch.revolution.min.js"></script>
+    <script src="js/ion.rangeSlider.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/funciones.js"></script>
+    <script src="js/busqueda.js"></script>
+    
+    <script>
+    
+    mi_usuario=0;
+    
+    (function(){
+        $(window).load(function(){
+            var frag = window.location.hash;
+            usuario = decodeURIComponent(frag);
+            listarCategorias();
+            if (usuario != ""){
+                setUsuario(usuario);
+            }       
+        });
+        
+    })(jQuery);
+     
+        
+        function setUsuario(usu){
+            
+            mi_usuario=usu;
+            
+        }
+        
+        function listarCategorias(){
+            
+            var parametros = {
+
+
+                                                   
+
+                                                };
+                                                
+                                                console.log(parametros);
+
+
+                                                
+
+                            $.ajax({
+                                                    data:  parametros,
+                                                    type: 'POST',
+                                                    url: 'https://receteanding.com/index.php/app_controller/listarCategoriasPaginaJson',
+
+
+                                                    dataType: "json",
+
+                                                    success: function(data){
+                                                    console.log(data);
+
+                                                        contenido='';
+                                                        for(i=0;i<data.length;i++){
+                                                            
+                                                            if(data[i]["categoria_id"]>2){
+                                
+                                                                    contenido+='<div class="col-md-3 col-sm-6 col-xs-12">';
+                                                                    contenido+='<div class="product-item">';
+                                                                  //  contenido+='   <a href="traerRecetas(1, '+data[i]["categoria_id"]+')">';
+                                                            contenido+='   <a href="javascript:void(0)" onclick="irRecetaDeCategoria('+data[i]["categoria_id"]+')">';
+                                                                    contenido+='        <div class="product-image" style="height: 160px; width:190px; margin:0 auto;    min-height: 160px;    max-height: 160px;">';
+                                                                        
+                                                                        if(data[i]["categoria_foto"]!=""){
+                                                                            
+                                                                            contenido+='<img src="'+data[i]["categoria_foto"]+'" alt="" style="height: 100%;" />';
+                                                                            
+                                                                        }else{
+                                                                            
+                                                                            contenido+='<img src="categoria_default.png" alt="" />';
+                                                                            
+                                                                            
+                                                                        }
+                                                                        
+                                                                        
+                                                                        
+                                                                    contenido+='</div>';
+                                                                    contenido+='</a>';
+                        
+                                                                   // contenido+='<a href="traerRecetas(1, '+data[i]["categoria_id"]+')">';
+                                                                    contenido+='<a href="javascript:void(0)" onclick ="irRecetaDeCategoria( '+data[i]["categoria_id"]+')">';
+                                                                    contenido+='<h3 class="product-title">'+data[i]["categoria_name"]+'</h3>';
+                                                                    contenido+='</a>';
+                                                                   /* contenido+='<a href="traerRecetas(1, '+data[i]["categoria_id"]+')" class="button add-to-cart-button">Ver Recetas</a>';*/
+                                                                    contenido+='<a href="javascript:void(0)" onclick= "irRecetaDeCategoria( '+data[i]["categoria_id"]+')" class="button add-to-cart-button">Ver Recetas</a>';
+                                                                    contenido+='</div>';
+                                                                    contenido+='</div>';
+                                                            
+                                                            }
+                                                            
+                                                            
+                                                        }
+                                                        
+                                                        if(contenido!=''){
+                                                            document.getElementById("contenedor_categorias").innerHTML=contenido;
+                                                        }
+
+                                                    },
+                                                    complete:function(){
+                                                        //corroborarSesion();
+                                                        
+                                                    },
+                                                    error: function(data){
+                                                    console.log(data);
+                                                        alert("Error al conectar con el servicio");
+                                                    }
+                            });  
+        }
+        
+        </script>
+</body>
+</html>

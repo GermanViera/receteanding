@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+	<!-- Basic Page Needs -->
+	<meta charset="utf-8">
+	<title> | Receteanding</title>
+	<meta name="description" content="recetas online">
+     <meta name="keywords" content="recetas online, uruguay">
+	<meta name="author" content="desarrollodelsur.com">
+
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	
+	<!-- Main Style -->
+    <link rel="stylesheet" href="style.css">
+    <script src="js/w3.js"></script>
+    <!-- customize CSS Style -->
+    <link rel="stylesheet" href="css/customize.css">
+
+    <!-- Skins Style -->
+    <link rel="stylesheet" href="css/skins/skins.css">
+
+    <!-- Responsive Style -->
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="images/icon.png">
+    
+    <!-- Skins -->
+    <!-- just remove the below comments witch color skin you want to use -->
+    <!--<link rel="stylesheet" href="css/skins/blue.css">-->
+    <!--<link rel="stylesheet" href="css/skins/yellow.css">-->
+    <!--<link rel="stylesheet" href="css/skins/green.css">-->
+    <!--<link rel="stylesheet" href="css/skins/cyan.css">-->
+    <!--<link rel="stylesheet" href="css/skins/orange.css">-->
+    <!--<link rel="stylesheet" href="css/skins/pink.css">-->
+    <!--<link rel="stylesheet" href="css/skins/purple.css">-->
+    <!--<link rel="stylesheet" href="css/skins/red.css">-->
+    <!--<link rel="stylesheet" href="css/skins/lactic.css">-->
+    <!--<link rel="stylesheet" href="css/skins/darkred.css">-->
+    
+    <script>
+        function eliminarComentario(id){
+            
+            document.getElementById("id_eliminar_comentario").value=id;
+            $("#myModalEliminarComentario").modal();
+            
+        }
+        
+        function eliminarFoto(id){
+            document.getElementById("id_eliminar_foto_respuesta").value=id;
+            $("#myModalEliminarFotoRespuesta").modal();
+        }
+        
+        function accionEliminarComentario(modo){
+        
+        if(modo==1){
+            id=document.getElementById("id_eliminar_foto_respuesta").value;
+        }else{
+            id=document.getElementById("id_eliminar_comentario").value;
+        }
+        
+        usuario=mi_usuario;
+        
+      
+            var parametros = {
+
+                        "id":id,
+                        "usuario":mi_usuario
+                                                   
+
+                                                };
+                                                
+                                                console.log(parametros);
+
+
+
+
+                            $.ajax({
+                                                    data:  parametros,
+                                                    type: 'POST',
+                                                    url: 'https://receteanding.com/index.php/app_controller/eliminarComentario',
+
+
+                                                    dataType: "json",
+
+                                                    success: function(data){
+                                                        
+                                                        if(modo==1){
+                                                            $('#myModalEliminarFotoRespuesta').modal('hide'); 
+                                                            listarComentarios(1);
+                                                        }else{
+                                                            $('#myModalEliminarComentario').modal('hide');
+                                                            listarComentarios(0);
+                                                        }
+                                                        
+                                                      
+
+                                                    },
+                                                    complete:function(){
+                                                        //corroborarSesion();
+                                                        
+                                                    },
+                                                    error: function(data){
+                                                    console.log(data);
+                                                        document.getElementById("msg_error").innerHTML="Hubo problemas al procesar la solicitud, verifique su conexión a internet";
+                            								    document.getElementById("title_error").innerHTML="Error";
+                                                                $("#myModalError").modal();
+                                                                return false;
+                                                    }
+                            });  
+       
+        
+        
+    }
+    
+    
+    </script>
+
+</head>
+<body class="sticky">
+
+        
+            <section  class="parallax-window" id="short"  data-parallax="scroll" data-image-src="images/comentarios.jpg" data-natural-width="1400" data-natural-height="500">
+            
+            
+       
+        
+            <div id="sub_header">
+                <div class="container" id="sub_content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 id="txt_titulo"></h1>
+                           
+                        </div>
+                    </div><!-- End row -->
+                </div><!-- End container -->
+            </div>
+        </section>
+        <!-- End SubHeader -->
+        <div class="white_bg">
+            <div class="container margin_60">
+                <div class="row">
+                    <div class="col-md-12">
+                        
+                        
+                       <!-- <div class="post-inner">
+                            
+                            
+            
+    			        	<h3 class="post-title"><?//=$titulo?></h3>
+    		        	    
+                            
+    				        
+                                
+    
+                            
+    
+    
+                            
+                            
+                            
+    				    </div>
+                        
+                        <div class="stars-tags">
+                            
+                            
+                            
+                            <ul class="tags">
+                                <?
+                                if($nick!=null && $nick!=""){
+                                    ?>
+                                    <li><a href="#"><?=$nick?></a><br>
+                                    <?
+                                }else{
+                                    ?>
+                                    <li><a href="#"><?=$usuario_nombre?></a><br>
+                                    <?
+                                }
+                                ?>
+                                
+                                </li>
+                                
+                            </ul>
+                                
+                        </div>-->
+                        <!--<div class="review-box review-percentage">
+                            <h2 class="review-box-header">Review Title</h2>
+                            <div class="review-item">
+                    			<h5>Design - 10</h5><span style="width: 100%;"></span>
+                    		</div>
+                            <div class="review-item">
+                    			<h5>Design - 9.1</h5><span style="width: 91%;"></span>
+                    		</div>
+                            <div class="review-item">
+                    			<h5>Design - 9.4</h5><span style="width: 94%;"></span>
+                    		</div>
+                            <div class="review-item">
+                    			<h5>Design - 9</h5><span style="width: 90%;"></span>
+                    		</div>
+                            <div class="review-item">
+                    			<h5>Design - 9.6</h5><span style="width: 96%;"></span>
+                    		</div>
+                    		<div class="review-summary">
+                    			<div class="review-final-score">
+                    				<h3>9.4</h3>
+                    				<h4>Review Final Score</h4>
+                    			</div>
+                        		<div class="review-short-summary">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi adipiscing gravida odio, sit amet suscipit risus ultrices eu. Fusce viverra neque at purus laoreet consequat. Vivamus vulputate posuere nisl quis consequat. </p>
+                                </div>
+                    		</div> 
+                            <div class="user-rate-wrap">
+                                <span class="user-rating-text">User Rating: 
+                                    <span class="rating-score">5</span> ( <span class="rating-count">26</span> votes )
+                                </span>
+                                <div class="user-rate rating-user-rate-active">
+                                    <span class="user-rate-image">
+                                        <span style="width:80%"></span>
+                                    </span>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                    	</div>
+                        <div class="about_author">
+                            <img src="http://placehold.it/100x100" alt="">
+                            <a href="http://themeforest.net/user/themearabia" target="_blank">Themearabia</a>
+                            <p>I'm a freelance designer with satisfied clients worldwide. I design simple, clean websites and develop easy-to-use applications. Web Design is not just my job it's my passion. You need professional web designer you are welcome.</p>
+                        </div>-->
+                        
+                       
+    				        
+                        
+                        <div id="commentlist" class="page-content">
+                            
+        					<h3 id="cantidad_comentarios"></h3>
+        				
+            
+            <div style="height:500px;overflow-y:scroll;">
+        					<ol class="commentlist clearfix" id="contenedor_comentarios">
+        					    
+        					    
+        					    
+        					   
+        					</ol><!-- End commentlist -->
+        					
+        					</div>
+        				</div>
+                        
+                        
+                    
+                        
+                        
+                    </div>
+                   <!--<?
+                    include('includes/right_side.php');
+                    ?>-->
+                </div><!-- End row -->   
+            
+            </div><!-- End container -->
+        </div><!-- End white_bg -->
+        <!-- newslatter -->
+    <div id="myModalError" class="modal fade" role="dialog" style="margin-top:60px;z-index:999999;">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="title_error"></h4>
+                </div>
+                <div class="modal-body">
+                    <p id="msg_error"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    
+    
+    <div id="myModalEliminarComentario" class="modal fade" role="dialog" style="margin-top:60px;z-index:999999;">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="titulo_modal">Eliminar Comentario</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="id_eliminar_comentario" value="0" />
+                    <p id="pregunta_modal">¿Realmente dese eliminar el Comentario?</p>
+                    <button type="button" onclick="accionEliminarComentario(0);" class="btn btn-primary">SI</button>
+                    <button type="button"  data-dismiss="modal" class="btn btn-success">No</button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <div id="myModalEliminarFotoRespuesta" class="modal fade" role="dialog" style="margin-top:60px;z-index:999999;">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="titulo_modal">Eliminar Foto Respuesta</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="id_eliminar_foto_respuesta" value="0" />
+                    <p id="pregunta_modal">¿Realmente dese eliminar la Foto Respuesta?</p>
+                    <button type="button" onclick="accionEliminarComentario(1);" class="btn btn-primary">SI</button>
+                    <button type="button"  data-dismiss="modal" class="btn btn-success">No</button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+        <!-- End Footer -->
+    </div><!-- End wrap Page -->
+    <!-- go-up -->
+    <div class="go-up"><i class="fa fa-chevron-up"></i></div>
+    <!-- End go-up -->
+     
+    <!-- COMMON SCRIPTS -->
+   <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="js/jquery.easing.1.3.min.js"></script>
+    <script src="js/jquery.nicescroll.min.js"></script>
+    <script src="js/jquery.scrollTo.js"></script>
+    <script src="js/ResizeSensor.min.js"></script>
+    <script src="js/theia-sticky-sidebar.min.js"></script>
+    <script src="js/parallax.min.js"></script>
+    <script src="js/jquery.themepunch.plugins.min.js"></script>
+    <script src="js/jquery.themepunch.revolution.min.js"></script>
+    <script src="js/ion.rangeSlider.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/funciones.js"></script>
+    <script src="js/comunicacion_swift.js"></script>
+    <script>
+        mi_usuario=0;
+        </script>
+    <script>
+        
+        
+        
+        
+        (function(){
+         $(window).load(function(){
+                        
+                        var frag = window.location.hash;
+                        varTitle = decodeURIComponent(frag);
+                        parametros = varTitle.split('#');
+                        usuario = parametros[1];
+                        modo = parametros[2];
+                        if (usuario != ""){
+                            setUsuario(usuario);
+                            if (modo == 0){  listarComentarios(0);}
+                            if (modo == 1){  listarComentarios(1);}
+                        }else{
+                            setMenu(0);
+                        }
+                        });
+         
+         })(jQuery);
+         
+ 
+        
+       
+  
+    
+    
+
+        
+        function listarComentarios(modo){
+            
+            if(modo==1){
+               document.getElementById("short").src='images/foto_r.jpg';
+               document.getElementById("short").naturalHeight="400";
+            }
+            
+            contenido='';
+            var parametros = {
+
+                        "modo":modo,
+                        "usuario":mi_usuario
+                                                   
+
+                                                };
+                                                
+                                                console.log(parametros);
+
+
+
+
+                            $.ajax({
+                                                    data:  parametros,
+                                                    type: 'POST',
+                                                    url: 'https://receteanding.com/index.php/app_controller/verComentarios',
+
+
+                                                    dataType: "json",
+
+                                                    success: function(data){
+                                                    console.log(data);
+                                                    
+                                                       
+                                                       document.getElementById("txt_titulo").innerHTML=data["titulo"];
+                                                       
+                                                       if(modo==1){
+                                                           document.getElementById("cantidad_comentarios").innerHTML='Foto Respuestas ( <span class="color">'+data["comentarios"].length+'</span> )';
+                                                       }else{
+                                                           document.getElementById("cantidad_comentarios").innerHTML='Comentarios ( <span class="color">'+data["comentarios"].length+'</span> )';
+                                                       }
+                                                       
+                                                       for(i=0;i<data["comentarios"].length;i++){
+                                                           
+                                                           
+                                                           contenido+='<li class="comment">';
+                                                			contenido+='		        <div class="comment-body clearfix"> ';
+                                                			contenido+='		            <div class="avatar" style="border:none">';
+                                                					                
+                                                					                if(data["comentarios"][i]["foto_comentario"]!=null && data["comentarios"][i]["foto_comentario"]!=""){
+                                                					                    
+                                                			contenido+='		                    <img class="img-circle" alt="" src="'+data["comentarios"][i]["foto_comentario"]+'" >';
+                                                					                    
+                                                					                }else{
+                                                					                    
+                                                			contenido+='		                    <img alt="" src="https://placehold.it/100x100"  class="img-circle" >';
+                                                					                    
+                                                					                }
+                                                					                
+                                                					                
+                                                			contenido+='		                </div>';
+                                                			contenido+='		            <div class="comment-text">';
+                                                			contenido+='		                <div class="author clearfix">';
+                                                			contenido+='		                	<div class="comment-meta">';
+                                                					                	     
+                                                					                	    if(data["comentarios"][i]["nick_u_comentario"]==null || data["comentarios"][i]["nick_u_comentario"]==""){
+                                                					                	        
+                                                			contenido+='		                        <span>'+data["comentarios"][i]["nombre_u_comentario"]+'" '+data["comentarios"][i]["apellido_u_comentario"]+' (<a href="javascript:void(0)" onclick="irReceta('+data["comentarios"][i]["receta_id"]+'">'+data["comentarios"][i]["receta_titulo"]+'</a>)</span>';
+                                                					                        
+                                                					                	    }else{
+                                                					                	        
+                                                			contenido+='		                	    <span>'+data["comentarios"][i]["nick_u_comentario"]+' (<a href="javascript:void(0)" onclick="irReceta('+data["comentarios"][i]["receta_id"]+'">'+data["comentarios"][i]["receta_titulo"]+'</a>)</span>    ';
+                                                					                	        
+                                                					                	    }
+                                                					                	    
+                                                			contenido+='		                        <div class="date">'+data["comentarios"][i]["fecha_formateada"]+'</div> ';
+                                                			contenido+='		                    </div>';
+                                                					    
+                                                			contenido+='		                </div>';
+                                                					                
+                                                					                if(data["comentarios"][i]["comentario_foto_url"]!=null && data["comentarios"][i]["comentario_foto_url"]!=""){
+                                                					                    
+                                                			contenido+='		                     <div  class="minstrucciones" style="overflow: hidden;    position: relative;    -moz-border-radius: 3px 3px 0 0;    -webkit-border-radius: 3px 3px 0 0;    border-radius: 3px 3px 0 0;    height: 220px">';
+                                                			contenido+='		                  <div class="text"><img src="'+data["comentarios"][i]["comentario_foto_url"]+'" style="display: block;    height: auto;    width: 100%;" /></div> </div> ';
+                                                					                    
+                                                					                }
+                                                					                
+                                                			contenido+='		                <div class="text"><p style="text-align:left">'+data["comentarios"][i]["comentario_comentario"]+'</p>';
+                                                			contenido+='		                </div>';
+                                                					                  
+                                                if(modo==0){
+                                                    
+                                                			contenido+='		                <a href="javascript:void(0)" onclick="eliminarComentario('+data["comentarios"][i]["comentario_id"]+')" class="button-more" style="width:100%">Eliminar</a>  ';
+                                                					                
+                                                }else{
+                                                    
+                                                            contenido+='                        <a href="javascript:void(0)" onclick="eliminarFoto('+data["comentarios"][i]["comentario_id"]+')" class="button-more"  style="width:100%">Eliminar</a>  ';
+                                                    
+                                                }
+                                                
+                                                
+                                                			contenido+='		            </div>';
+                                                			contenido+='		        </div>';
+                                                					        
+                                                			contenido+='		    </li>';
+                                                           
+                                                       }
+                                                       
+                                                       
+                                                       
+                                                       if(contenido!=''){
+                                                           console.log(contenido);
+                                                           document.getElementById("contenedor_comentarios").innerHTML=contenido;
+                                                       }
+                                                           
+                                                       
+
+                                                    },
+                                                    complete:function(){
+                                                        //corroborarSesion();
+                                                        
+                                                    },
+                                                    error: function(data){
+                                                    console.log(data);
+                                                        document.getElementById("msg_error").innerHTML="Hubo problemas al procesar la solicitud, verifique su conexión a internet";
+                            								    document.getElementById("title_error").innerHTML="Error";
+                                                                $("#myModalError").modal();
+                                                                return false;
+                                                    }
+                            });  
+        }
+    </script>
+</body>
+</html>

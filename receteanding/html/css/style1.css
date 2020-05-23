@@ -1,0 +1,883 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+@font-face {
+    font-family: 'RobotoL';
+    src: url('../fonts/Roboto-Light.ttf');
+}
+@font-face {
+    font-family: 'RobotoB';
+    src: url('../fonts/Roboto-Bold.ttf');
+}
+.contenedor{
+    width: 100%;
+    //color: white;
+    font-family: 'RobotoL', sans-serif;
+}
+ul{
+    list-style: none;
+}
+a{
+word-break: break-all;
+}
+
+.boton_noti{
+	    width: 100%;
+    margin-top: 20px;
+    padding: 5px;
+    font-size: .9em;
+    text-align: center;
+    border: 1px solid #2980b9;
+    background-color: #ecf0f1;
+    color: #2980b9;
+
+}
+
+.mi_boton{
+
+display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    width:100%;
+}
+
+.img-responsive-noticias{
+    width:100%;
+    padding-right: 10px;
+        padding-top: 10px;
+        /*padding-bottom: 10px;*/
+        max-width:500px;
+}
+
+.titulo_noticias{
+    font-family: 'RobotoB', sans-serif;
+    color:#0D77BA;
+    margin-top:5px;
+    font-size: 1em;
+    padding-right:10px;
+}
+
+.img_ver_mas{
+    width: 70;
+    font-size: 0;
+    padding: 0;
+    padding-right: 10px;
+}
+
+.img_descargar{
+    width: 50;
+    font-size: 0;
+    padding: 0;
+    padding-right: 10px;
+}
+
+.p_noticias{
+text-align:justify;
+padding-right:10px;
+}
+
+/*---------menu ------------*/
+
+#dialog1 {
+		position: fixed;
+		top: 0px;
+		left: 1px;
+		font-size: 18px;
+		background-color: #3c3b3c;
+		height: 100%;
+		width: 270px;
+		color:#767676;
+		z-index:9999;-webkit-box-shadow: 4px 4px 32px 2px rgba(69,69,69,1);
+        -moz-box-shadow: 4px 4px 32px 2px rgba(69,69,69,1);
+        box-shadow: 4px 4px 32px 2px rgba(69,69,69,1);
+}
+#dialog1 ul{
+    background: none;
+}
+#dialog1 ul li{
+    margin:0;
+    padding:0;
+    float: none;
+    border-radius: 0;
+    height: 50px;
+    border-bottom: 1px solid #4b4b4b;
+    width:270px;
+
+
+
+}
+#dialog1 ul li p{
+    float: left;
+    font-size: 13px;
+   /* margin-top: 10px;
+    margin-left: 20px;*/
+color:#ecf0f1;
+//width:220px;
+//position: unset;
+    left: 0;
+    width:200px;
+        margin-top: 10px;
+
+}
+#dialog1 ul li img{
+    margin-left: 5px;
+    //margin-top: 10px;
+    height: 25px;
+
+        left: 0;
+}
+
+#dialog1 ul li table{
+    background-color:transparent;
+    margin: 0;
+    width:100%;
+    display: block;
+
+}
+
+#dialog1 ul li table tr{
+      height: unset;
+      border-bottom: 0;
+
+}
+
+#dialog1 ul li table td{
+      padding-left: 0px;
+
+}
+.overlay1{
+		display: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		min-height: 100%;
+		height: 100%;
+		z-index:1;
+        background-color: rgba(0,0,0,0.6);
+}
+#usuarioMenu{
+    border-top: 1px solid #4b4b4b;
+    width:100%;
+    bottom:10;
+    position:absolute
+}
+#usuarioMenu img{
+    float: left;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    padding: 10px;
+}
+#usuarioMenu p{
+    margin-top: 20px;
+    color: #fff !important;
+}
+
+#usuarioMenu1{
+    border-top: 1px solid #4b4b4b;
+    width:100%;
+    top:0;
+    position:absolute
+}
+#usuarioMenu1 img{
+    float: left;
+
+    height:45px;
+    border-radius: 50%;
+    padding: 10px;
+}
+#usuarioMenu1 p{
+    margin-top: 20px;
+    color: #fff !important;
+    font-size:15px;
+}
+
+#usuarioMenu2{
+    border-top: 1px solid #4b4b4b;
+    width:100%;
+    top:50px;
+    position:absolute
+}
+#usuarioMenu2 img{
+    float: left;
+
+    height:45px;
+    border-radius: 50%;
+    padding: 10px;
+}
+#usuarioMenu2 p{
+    margin-top: 20px;
+    color: #fff !important;
+    font-size:15px;
+}
+
+
+#usuarioMenu3{
+    border-top: 1px solid #4b4b4b;
+    width:100%;
+    top:100px;
+    position:absolute
+}
+#usuarioMenu3 img{
+    float: left;
+
+    height:45px;
+    border-radius: 50%;
+    padding: 10px;
+}
+#usuarioMenu3 p{
+    margin-top: 20px;
+    color: #fff !important;
+    font-size:15px;
+}
+
+
+#usuarioMenu4{
+    border-top: 1px solid #4b4b4b;
+    width:100%;
+    top:150px;
+    position:absolute
+}
+#usuarioMenu4 img{
+    float: left;
+
+    height:45px;
+    border-radius: 50%;
+    padding: 10px;
+}
+#usuarioMenu4 p{
+    margin-top: 20px;
+    color: #fff !important;
+    font-size:15px;
+}
+
+#usuarioMenu5{
+    border-top: 1px solid #4b4b4b;
+    width:100%;
+    top:200px;
+    position:absolute
+}
+#usuarioMenu5 img{
+    float: left;
+
+    height:45px;
+    border-radius: 50%;
+    padding: 10px;
+}
+#usuarioMenu5 p{
+    margin-top: 20px;
+    color: #fff !important;
+    font-size:15px;
+}
+
+#usuarioMenu6{
+    border-top: 1px solid #4b4b4b;
+    width:100%;
+    top:250px;
+    position:absolute
+}
+#usuarioMenu6 img{
+    float: left;
+
+    height:45px;
+    border-radius: 50%;
+    padding: 10px;
+}
+#usuarioMenu6 p{
+    margin-top: 20px;
+    color: #fff !important;
+    font-size:15px;
+}
+
+#usuarioMenu7{
+    border-top: 1px solid #4b4b4b;
+    width:100%;
+    top:300px;
+    position:absolute
+}
+#usuarioMenu7 img{
+    float: left;
+
+    height:45px;
+    border-radius: 50%;
+    padding: 10px;
+}
+#usuarioMenu7 p{
+    margin-top: 20px;
+    color: #fff !important;
+    font-size:15px;
+}
+
+
+
+
+
+
+
+/*class*/
+.menu{
+
+    height: 40px;
+    padding-left: 0;
+     padding-right:10px;
+     padding-top:10px;
+    border-bottom: solid 1px #FFFFFF;
+position: fixed;
+    width: 100%;
+    top: 0;
+    color:#FFFFFF;
+    background-color: #0D77BA;
+    z-index: 5000;
+     font-family: 'RobotoB', sans-serif;
+}
+.menu img{
+    height: 20px;
+}
+.menu .btnMenu{
+    margin-right: 31%;
+}
+
+
+.menub{
+        display:'';
+        padding-left: 0;
+        border-bottom: solid 1px #FFFFFF;
+        text-align:center;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        color: #FFFFFF;
+        background-color: #FFFFFF;
+        z-index: 5000;
+        font-family: 'RobotoB', sans-serif;
+}
+
+@media screen and (orientation: landscape) and (min-width: 560px) {
+    .menub{
+    display:none;
+    bottom: 0;
+    }
+}
+@media screen and (orientation: landscape) and (min-width: 660px) {
+    .menub{
+    display:none;
+    bottom: 15;
+    }
+}
+
+@media screen and (orientation: landscape) and (min-width: 730px) {
+    .menub{
+    display:none;
+    bottom: 30;
+    }
+}
+.menub img{
+   // height: 20px;
+}
+
+.menu a{
+    color: #FFFFFF;
+    text-decoration:none;
+}
+
+.menub a{
+    color: #FFFFFF;
+    text-decoration:none;
+}
+
+.menub .btnMenu{
+    margin-right: 31%;
+}
+/*-----login -----*/
+#login{
+    background-image: url('../img/img_fondo.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position-x: 0;
+}
+#login header img{
+    width:80%;
+    margin: 80px 10%;
+}
+#login section{
+    width:80%;
+    margin: 0 10%;
+    text-align: center
+}
+#login section p{
+    font-family: 'RobotoB';
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+#login section #nombreLogin,#login section #paswordLogin{
+    width: 100%;
+    height:50px;
+    font-size: 0.9em;
+    padding-left: 10px;
+    color: #64676c;
+}
+#login section #nombreLogin{
+    //padding-top: 20px;
+    border-radius: 5px 5px 0 0;
+    border:none;
+    border-bottom: solid 1px #64676c;
+}
+#login section #paswordLogin{
+    //padding-bottom: 20px;
+    border-radius: 0 0 5px 5px;
+    border:none
+}
+#login section #submitLogin{
+    width: 100%;
+    height:50px;
+    margin-top: 5px;
+    border-radius: 5px;
+    background-color: #2980b9;
+    font-size: 1em;
+    color: white;
+    border: none;
+}
+
+/*-----seleccionVehiulo -----*/
+#seleccionVehiulo{
+    background-color: #ecf0f1;
+}
+#seleccionVehiulo section{
+    width: 86%;
+    margin: 20px 7%;
+    color: #64676c;
+}
+#seleccionVehiulo section header p{
+    padding: 5px;
+    font-size: .9em;
+    text-align: center;
+    border: 1px solid #2980b9;
+}
+#seleccionVehiulo section main{
+    margin-top: 20px;
+    background-color: white;
+    border: 1px solid #2980b9;
+}
+#seleccionVehiulo section main table{
+    width: 100%;
+    color: #64676c;
+}
+#seleccionVehiulo section main tr td{
+    border-bottom: 1px solid #2980b9;
+    padding: 10px 0;
+    width: 34%;
+    height: 30px;
+}
+#seleccionVehiulo section main tr img{
+    height: 30px;
+    float: left
+}
+#seleccionVehiulo section main tr p{
+    text-align: center;
+}
+#seleccionVehiulo section main tr .vehiuloSelecionado{
+    float: right
+}
+#seleccionVehiulo section footer input{
+    width: 100%;
+    margin-top: 20px;
+    padding: 5px;
+    font-size: .9em;
+    text-align: center;
+    border: 1px solid #2980b9;
+    background-color: #ecf0f1;
+    color: #2980b9;
+}
+/*------ ficha -----*/
+#ficha{
+    background-color: #ecf0f1;
+}
+#ficha #map{
+    width: 100%;
+    height: 250px;
+    background: #FFFFFF;
+}
+#ficha hr{
+    border-color: #dbdbdb;
+}
+#ficha section{
+    width: 86%;
+    margin: 20px 7%;
+    color: #64676c;
+margin-top:45px;
+}
+#ficha section p{
+    text-align: center;
+    font-size: .8em;
+    font-family: 'RobotoB';
+    color: #64676c;
+}
+#ficha section article{
+    width: 100%;
+    background-color: white;
+    padding: 5px 10px;
+    margin-top: 10px;
+}
+
+.mi_text{
+    width: 100%;
+    background-color: white;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+#ficha section article p{
+    font-weight: bold;
+    margin: 0px;
+}
+#ficha section article .tituloFicha{
+  font-size: .9em !important;
+  text-align: left;
+  width: 60%;
+  display: inline;
+}
+#ficha section article .flechaInfo{
+  float: right;
+  height: 10px;
+  margin-top: 2px;
+  margin-right: 5%;
+}
+.imgOD{
+    width: 15%;
+    height: 60px;
+    float: left;
+}
+.imgOD img{
+    margin-left: 35%;
+    margin-top: 10px;
+}
+#ficha section article form{
+    display: inline;
+}
+#ficha section article form input{
+    width: 80%;
+    margin: 7px 0;
+    background-color: #dbdbdb;
+    border: none;
+    color: #64676c;
+    padding: 5px 10px
+}
+
+#ficha section article  textarea{
+    width: 94%;
+    margin: 7px 0;
+    background-color: #dbdbdb;
+    border: none;
+    color: #64676c;
+    padding: 5px 10px
+
+}
+
+#ficha section article form textarea{
+    width: 80%;
+    margin: 7px 0;
+    background-color: #dbdbdb;
+    border: none;
+    color: #64676c;
+    padding: 5px 10px
+}
+#clienteFicha p{
+    text-align: left !important;
+    font-family: 'RobotoL' !important;
+}
+#clienteFicha p span{
+    font-family: 'RobotoB';
+}
+#preciosFicha ul{
+    width: 100%;
+    display: block;
+    //float: left;
+    display: inline-block;
+}
+#preciosFicha ul span{
+    color: #2980b9;
+    font-family: 'RobotoB';
+}
+#preciosFicha input{
+    border: 1px solid #64676c;
+    background-color: #fff;
+    width: 100%;
+    padding: 10px 0;
+    display: inline-block;
+}
+#preciosFicha .sumar{
+    width: 10%;
+    font-size: 20px;
+    box-shadow: none;
+    position: relative;
+    top: -30px;
+    left: 85%;
+}
+#extrasFicha form{
+    width: 80% !important;
+}
+#extrasFicha textarea{
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    font-family: 'RobotoL';
+}
+#extrasFicha form table{
+    width: 100%;
+    //font-size: 0.8em;
+}
+#extrasFicha form input{
+    float: left;
+    color: red;
+    background-color: #fff !important;
+    font-size: 0.8em;
+}
+#extrasFicha form td{
+    width: 50%;
+}
+#extrasFicha form p{
+    width: 100%;
+    padding: 5px 0;
+    float: left;
+    text-align: right;
+    color: white;
+    background-color: #2980b9;
+}
+#extrasFicha form p img{
+    height: 15px;
+    float: right;
+    margin-top: 1px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+#cargarFicha textarea{
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    font-family: 'RobotoL';
+}
+
+
+#observacionesFicha textarea{
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    font-family: 'RobotoL';
+}
+
+
+#cargarFicha table{
+    width: 100%
+}
+#cargarFicha td{
+    width: 50%
+}
+#cargarFicha td p{
+     width: 100%;
+    padding: 5px 0;
+    float: left;
+    text-align: right;
+    color: white;
+    background-color: #2980b9;
+    font-size: 0.8em;
+}
+#cargarFicha td p img{
+    height: 15px;
+    float: right;
+    margin-top: 1px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+/*------ viajes -----*/
+
+.fake-input { position: relative; max-width:95%; margin: 15 0 15 10; }
+.fake-input input { border:1px #2980b9 solid; background:#fff; display:block; width: 100%; box-sizing: border-box; border-radius:3px;height: 30px; }
+.fake-input img { position: absolute; top: 2px; right: 5px }
+
+#viajes{
+    background-color: #ecf0f1;
+    color: #64676c;
+}
+
+#viajes section header p{
+    padding: 5px;
+    font-size: .9em;
+    text-align: center;
+    border: 1px solid #2980b9;
+}
+#viajes h1{
+    margin: 10px 3%;
+    width: 94%;
+    padding: 3px 0;
+    border: 1px solid #2980b9;
+    text-align: center;
+    font-size: 1em;
+}
+.viajes_ul{
+    border-right:
+    width: 90%;
+    height: 20px;
+    margin: 0 5%;
+    background-color: #fff;
+    border: 1px solid #64676c;
+    border-radius: 5px
+
+}
+.viajes_ul_li{
+    width: 33.102052%;
+    height: 17px;
+    padding-top: 3px;
+    float: left;
+    text-align: center;
+    font-size: .8em;
+    font-family: 'RobotoB';
+}
+.viajes_ul_li ul li:hover, #viajes .activo{
+    background-color: #2980b9;
+    color: #fff;
+}
+
+.viajes_ul_li ul li:hover, #viajes .activo_asignado{
+    background-color: #ff99ff;
+    color: #fff;
+}
+
+.viajes_ul_li ul li:hover, #viajes .activo_ocupado{
+    background-color: #E74C3C;
+    color: #fff;
+}
+
+
+#viajes table{
+    width: 100%;
+    margin: 5px 0;
+    background-color: #fff
+}
+#viajes table tr{
+        height: 60px;
+    border-bottom: 1px solid #979797
+}
+
+#viajes table tr td{
+        padding-left: 10px;
+
+}
+
+#busqueda1{
+    background-color: #ecf0f1;
+    color: #64676c;
+}
+
+#busqueda1 section header p{
+    padding: 5px;
+    font-size: .9em;
+    text-align: center;
+    border: 1px solid #2980b9;
+}
+#busqueda1 h1{
+    margin: 10px 3%;
+    width: 94%;
+    padding: 3px 0;
+    border: 1px solid #2980b9;
+    text-align: center;
+    font-size: .8em;
+}
+
+#loading {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        color:#FFFFFF;
+        top: 0;
+        left: 0;
+        background-color: rgba(0,0,0,0.75);
+        -webkit-transition: all .5s ease;
+        z-index: 2000;
+        display:none;
+        }
+
+#busqueda1 table{
+    width: 100%;
+    margin: 5px 0;
+    background-color: #fff
+}
+#busqueda1 table tr{
+       /* height: 60px;
+    border-bottom: 1px solid #979797*/
+}
+
+#busqueda1 table tr td{
+        padding-left: 10px;
+
+}
+
+
+.viajesVehiculo{
+    width: 20%;
+}
+.viajesVehiculo img{
+    width: 100%;
+}
+.viajesInfoClienete p{
+    font-size: .9em;
+}
+.viajesInfoClienete h2{
+    font-size: 1.1em;
+}
+.viajesInfoClienete h3{
+    font-size: .8em;
+    color: #2980b9;
+}
+.viajesMasInfo img{
+    height: 15px;
+    float: right;
+    margin: 0 10px;
+    -ms-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+.btn_guardar_usuario{
+    width: 100%;
+    margin-top: 20px;
+    padding: 5px;
+    font-size: .9em;
+    text-align: center;
+    border: 1px solid #2980b9;
+    background-color: #ecf0f1;
+    color: #2980b9;
+}
+
+   .p_partidos{
+                padding-top: 1%;
+            }
+            @media (min-width: 600px) {
+
+            .p_partidos{
+                padding-top: 8%;
+            }
+            }
+
+
+
+
+

@@ -1,0 +1,144 @@
+<!-- Header -->
+        <header class="style1" style="height:80px;">
+        <div class="container" style="    padding-top: 10px;">
+            <div class="logo">
+                <a  href="javascript:void(0)" onclick="Android.irInicio()">
+                    <img src="images/logo-green.png" alt="" class="hidden-sm hidden-xs">
+                    <img src="images/logo-greenh.jpg" style="width:180px;" alt="" class="hidden-lg hidden-md">
+                </a>
+            </div>
+            <!-- responsive nav -->
+            <nav class="menu-panel" id="res-menu">
+                <a class="np-toggle-switch np-toggle-switch-nxp open_close" href="javascript:void(0);"><span>Menu mobile</span></a>
+                <div class="main-menu" id="main-menu">
+                    <div id="header_menu">
+                        <img src="images/logo-menu.png" style="width:190px;" alt="">
+                    </div>
+                    <a href="#" class="open_close" id="close_in"><i class="icon_close"></i></a>
+                    <ul>
+                        <li >
+                            <a href="javascript:void(0)" onclick="Android.irInicio()"><i class="icon_house_alt"></i> Inicio </a>
+                           
+                        </li>
+                        <!--
+                        <li>
+                            <a href="<?=base_url()?>index.php/site_controller/receta" class=""><i class="ic icon-plus-circle"></i> Crear Receta </a>
+                            
+                        </li>
+                        
+                        <li class="submenu">
+                            <a href="javascript:void(0);" class="show-submenu"><i class="ic icon-recipes"></i> Mis Recetas <i class="fa fa-angle-down"></i></a>
+                            <ul>
+                                <li><a href="<?=base_url()?>index.php/site_controller/misRecetas">Mis Creaciones</a></li>
+                                <li><a href="<?=base_url()?>index.php/site_controller/listarRecetasGuardadas">Guardadas</a></li>
+                                <li><a href="<?=base_url()?>index.php/site_controller/listarRecetasMeGusta">Que me Gustan</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="<?=base_url()?>index.php/site_controller/verComentarios/0"><i class="fa fa-comments" style="float:left;    width: 50px;"></i>Comentarios</a></li>
+                        <li><a href="<?=base_url()?>index.php/site_controller/verComentarios/1"><i class="fa fa-photo" style="float:left;    width: 50px;"></i>Foto Respuesta</a></li>
+                        -->
+                        <!--<li class="submenu">
+                            <a href="javascript:void(0);" class="show-submenu"><i class="fa fa-comments" style="float:left;    width: 50px;"></i> Comentarios <i class="fa fa-angle-down"></i></a>
+                            <ul>
+                                <li><a href="<?=base_url()?>index.php/site_controller/verComentarios/1">Foto Respuesta</a></li>
+                                <li><a href="<?=base_url()?>index.php/site_controller/verComentarios/0">Comentarios</a></li>
+                              </ul>
+                        </li>-->
+
+        					<!--<li><a href="<?=base_url()?>index.php/site_controller/listarSiguiendo" ><i class="fa fa-user" style="display:block;float:left;    width: 50px;"></i> Siguiendo </a></li>-->
+        					
+        					<!--<?
+        					    if(isset($notificaciones) && $notificaciones!=null && count($notificaciones)>0){
+        					        $nuevas=0;
+        					        foreach($notificaciones as $notif){
+        					            if($notif->notificacion_leido==0){
+        					                $nuevas=1;
+        					            }
+        					        }
+        					        ?>-->
+
+                        <!-- <li style=" " class="submenu">
+                          <a href="javascript:void(0);" class="show-submenu">
+                           <?
+                              if($nuevas){
+                                  ?>
+                                  Nuevas Notificaciones <i class="fa fa-angle-down"></i>
+                                  <?
+                              }else{
+                                  ?>
+                                  Notificaciones <i class="fa fa-angle-down"></i>
+                                  <?
+                              }
+                              ?>
+
+                          </a>
+
+                          <ul>
+                              <?
+                              foreach($notificaciones as $noti){
+                                  ?>
+
+
+                              <li>
+                                  <?
+                                  if($noti->notificacion_tipo=="USUARIOSEGUIR"){
+                                      ?>
+                                      <a href="<?=base_url()?>index.php/site_controller/listarSiguiendo?noti=<?=$noti->notificacion_id?>">
+                                      <?
+                                  }else if($noti->notificacion_tipo=="CONTENIDO"){
+                                      ?>
+                                      <a href="<?=base_url()?>index.php/site_controller/show/<?=$noti->notificacion_receta?>?noti=<?=$noti->notificacion_id?>"  >
+                                      <?
+                                 }else{
+                                      ?>
+                                      <a href="<?=base_url()?>index.php/site_controller/verReceta/<?=$noti->notificacion_receta?>?noti=<?=$noti->notificacion_id?>"  >
+                                          <?
+                                  }
+                                  ?>
+
+                                      <?=$noti->notificacion_contenido?>
+
+
+                                  <?
+                                  if($noti->notificacion_leido==0){
+                                      ?>
+                                      <br><p style="text-align:right;padding-right:5px; margin:0;"><label class="badge" style="background: #7DAF74">nueva</label></p>
+                                      <?
+                                  }
+                                  ?>
+                                   </a>
+                             </li>
+
+                                    <?
+                              }
+                              ?>
+                              </ul>
+                      </li>
+                      <?
+                          }
+                          ?>-->
+                     <!-- <li><a href="index.php/site_controller/perfil" ><i class="fa fa-user" style="display:block;float:left;    width: 50px;"></i> Perfil </a></li>
+
+                         <li><a href="index.php/site_controller/eliminarSesion"><i class="fa fa-sign-out" style="display:block;float:left;    width: 50px;"></i> Salir </i></a></li>
+                      -->
+
+                       <li >
+                          <!--<a href="javascript:void(0);" class="show-submenu"><i class="fa fa-sign-in" style="display:block"></i> Ingresar <i class="fa fa-angle-down"></i></a>
+                          <ul>-->
+                                    <li><a href="javascript:void(0);" onclick="Android.irLogin()"><i class="fa fa-sign-in" style="display:block"></i><span  style="border: 1px solid #ddd;    padding: 4px 8px; visibility: visible; animation-duration: 1s; animation-iteration-count: 7; animation-name: flash;" class="lang wow flash animated" data-wow-iteration="7" data-wow-duration="1s">Entrar</span></a></li>
+                                    <!--<li><a href="<?//=base_url()?>index.php/site_controller/registro">Registro</a></li>
+                                    
+                                </ul>-->
+                            </li>
+        					
+        				
+
+        					<!--<li><a href="<?=base_url()?>index.php/site_controller/showContact" ><i class="fa fa-user" style="display:block;float:left;    width: 50px;"></i> Contacto </a></li>-->
+                    </ul>
+                </div>
+            </nav>
+
+
+
+        </div><!-- End container -->
+        </header><!-- End Header -->

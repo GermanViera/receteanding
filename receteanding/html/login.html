@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head><meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+	<!-- Basic Page Needs -->
+	
+	<title>Login | Receteanding</title>
+	<meta name="description" content="Recipes Food - Food & Recipes Food Template">
+     <meta name="keywords" content="">
+	<meta name="author" content="desarrollodelsur.com">
+  <script src="js/comunicacion_swift.js"></script>
+
+<!-- Main Style -->
+    <link rel="stylesheet" href="style.css">
+    <script src="js/w3.js"></script>
+    <!-- customize CSS Style -->
+    <link rel="stylesheet" href="css/customize.css">
+
+    <!-- Skins Style -->
+    <link rel="stylesheet" href="css/skins/skins.css">
+
+    <!-- Responsive Style -->
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="images/icon.png">
+    
+    <!-- Skins -->
+    <!-- just remove the below comments witch color skin you want to use -->
+    <!--<link rel="stylesheet" href="css/skins/blue.css">-->
+    <!--<link rel="stylesheet" href="css/skins/yellow.css">-->
+    <!--<link rel="stylesheet" href="css/skins/green.css">-->
+    <!--<link rel="stylesheet" href="css/skins/cyan.css">-->
+    <!--<link rel="stylesheet" href="css/skins/orange.css">-->
+    <!--<link rel="stylesheet" href="css/skins/pink.css">-->
+    <!--<link rel="stylesheet" href="css/skins/purple.css">-->
+    <!--<link rel="stylesheet" href="css/skins/red.css">-->
+    <!--<link rel="stylesheet" href="css/skins/lactic.css">-->
+    <!--<link rel="stylesheet" href="css/skins/darkred.css">-->
+
+
+  </head>
+
+<body class="sticky">
+
+    <div id="wrap">
+      
+        <!-- SubHeader -->
+        <section class="parallax-window" id="short"  data-parallax="scroll" data-image-src="images/log_in.jpg" data-natural-width="1800" data-natural-height="480">
+            <div id="sub_header">
+                <div class="container" id="sub_content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            
+                        </div>
+                    </div><!-- End row -->
+                </div><!-- End container -->
+            </div>
+        </section>
+        <!-- End SubHeader -->
+        <div class="white_bg">
+            <div class="container margin_60">
+                <div class="main_title">
+                    <h2 class="nomargin_top">Login</h2>
+                    <hr class="divider">
+                </div>
+    
+                <div class="row">
+          
+                    <div class="col-md-12" style="text-align:center;">
+                            
+    
+                        <div class="form-login" style="    max-width: 300px;    display: inline-block;">
+                            
+                            <form action="" method="post">
+                                <div class="form-group">
+                                    <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-6 text-left" style="PADDING: 0;
+    TEXT-ALIGN: CENTER;">
+                                        <button type="button" class="btn  btn-primary" onclick="validarDatos()">INGRESAR</button>
+                                    </div>
+                                    <div class="col-md-6 col-xs-6 text-right" style="PADDING: 0;
+    TEXT-ALIGN: CENTER;padding-right: 15px;">
+                                        <i class="fa fa-question-circle"></i> <a href="#"   data-toggle="modal" data-target="#myModal">Olvidaste tu contrase&ntilde;a?</a>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="login-social">
+                                <div class="separator"><span>Or</span></div>
+                                <em>Signin with your Social Networks</em>
+                                <ul>
+                                    <li class="fb-bg"><a href="javascript:void(0)" ><i class="fa fa-facebook"></i> Facebook Login</a></li>
+
+                                    <li class="g-bg"><a href="javascript:void(0)"   onclick="irLoginGoogle();"><i class="fa fa-google-plus"></i> Google Login</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="user-signup">
+                                <i class="fa fa-user-plus"></i> No eres miembro?  <a href="javascript:void(0)" onclick="irRegistro();">Registrate</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                               <div id="myModal" class="modal fade" role="dialog" style="    z-index: 99999;">
+                          <div class="modal-dialog">
+                        
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Recuperar tu Password</h4>
+                              </div>
+                              <div class="modal-body">
+                                <form action="" method="post">
+                        <div class="form-group">
+                                          <label class="sr-only" for="inputEmail">Email </label>
+                                          <input class="form-control " id="inputEmail" name="email" type="email" placeholder="Email" required="" autofocus="">
+                                        
+                                        </div>
+                        
+                                        <button class="btn btn-lg btn-dark btn-block" type="button" onclick="validarDatosRestablecer();">Restablecer</button>
+                        
+                                </form>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                              </div>
+                            </div>
+                        
+                          </div>
+                        </div>
+            </div><!-- End container -->
+        </div><!-- End white_bg -->
+        <!-- newslatter -->
+        
+        <!-- End newslatter -->
+        <!-- Footer -->
+        <!-- End Footer -->
+    </div><!-- End wrap Page -->
+    <!-- go-up -->
+    <div class="go-up"><i class="fa fa-chevron-up"></i></div>
+
+    <div id="myModalError" class="modal fade" role="dialog" style="margin-top:60px;z-index:999999;">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Error</h4>
+                </div>
+                <div class="modal-body">
+                    <p id="msg_error"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+ 
+    <!-- COMMON SCRIPTS -->
+   <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="js/jquery.easing.1.3.min.js"></script>
+    <script src="js/jquery.nicescroll.min.js"></script>
+    <script src="js/jquery.scrollTo.js"></script>
+    <script src="js/ResizeSensor.min.js"></script>
+    <script src="js/theia-sticky-sidebar.min.js"></script>
+    <script src="js/parallax.min.js"></script>
+    <script src="js/jquery.themepunch.plugins.min.js"></script>
+    <script src="js/jquery.themepunch.revolution.min.js"></script>
+    <script src="js/ion.rangeSlider.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/funciones.js"></script>
+    <script src="js/login.js"></script>
+
+    <script>
+    
+         $( document ).ready(function() {
+          
+        });
+        
+    </script>
+
+    <div id="loading">
+        <p align="center" style="padding-top:30%;"><img src="rece.png" style="width: 100px;" /> </p>
+        <p align="center" style="padding-top:10%;">CARGANDO INFORMACIÓN . . . </p>
+
+    </div>
+    <div style="height:300px;">
+        &nbsp;
+    </div>
+      
+</body>
+</html>
